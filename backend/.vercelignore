@@ -1,0 +1,7 @@
+# Keep the serverless bundle lean — none of these run in production.
+.venv/
+tests/
+seed/
+smoke_test.py
+requirements-dev.txt
+pytest.ini

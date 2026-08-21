@@ -142,8 +142,9 @@ Open **http://localhost:5173**.
 
 ## Deploy
 
-Two independently-hostable pieces — backend on Render, frontend on Vercel, any free tier works.
-Step-by-step (with the CORS ordering gotcha and troubleshooting): **[`docs/DEPLOY.md`](docs/DEPLOY.md)**.
+Two independently-hostable pieces. The guide deploys both to **Vercel** (no credit card) — the
+frontend as a static build, the backend as a Python serverless function — with the CORS ordering
+and troubleshooting spelled out: **[`docs/DEPLOY.md`](docs/DEPLOY.md)**.
 
 ## A look around
 
