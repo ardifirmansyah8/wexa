@@ -18,9 +18,11 @@ frontend because both have zero-cost tiers and no credit card is required.
 
 ## 0. Prerequisites
 
-- The repo is pushed to GitHub (see [§4](#4-push-to-github) if not yet).
-- Your CognoDB instance is running and already seeded (`python -m seed.seed`). The hosted
-  backend reads the **same** instance — you do **not** re-seed for deployment.
+- The repo is on GitHub: **https://github.com/ardifirmansyah8/wexa**. Both Render and Vercel
+  import straight from it. (If it's private, add Wexa as a collaborator — see [§4](#4-after-you-deploy).)
+- Your CognoDB instance is running and already seeded, **posters included** (`python -m seed.seed`
+  after `enrich_posters`). The hosted backend reads the **same** instance, so you do **not**
+  re-seed and the deployed app already shows real posters.
 - You have the CognoDB **URI** and **password** handy.
 
 ---
@@ -46,6 +48,9 @@ frontend because both have zero-cost tiers and no credit card is required.
    | `NEO4J_DATABASE` | `neo4j` |
    | `PYTHON_VERSION` | `3.12.7` |
    | `CORS_ORIGINS` | `*` _(temporary — tighten in step 3)_ |
+
+   `TMDB_API_KEY` is **not** needed here — it's only used by the one-off `enrich_posters` script
+   at seed time, and posters are already stored on your instance.
 5. **Create Web Service.** When it's live, note the URL, e.g.
    `https://moviegraph-api.onrender.com`.
 6. Verify: open `https://<your-backend>/api/health` — you want
@@ -95,19 +100,19 @@ That's the hosted demo the assignment asks for. 🎉
 
 ---
 
-## 4. Push to GitHub
+## 4. After you deploy
 
-If you haven't pushed yet:
-
-```bash
-cd cognodb-movie-graph
-gh repo create moviegraph --private --source=. --remote=origin --push
-# or, with an existing empty repo:
-git remote add origin git@github.com:<you>/moviegraph.git
-git push -u origin main
-```
-
-If you keep the repo **private**, add Wexa as a collaborator (they ask for access in the brief).
+1. **Put the live URL in the README.** Replace the placeholder in the top callout:
+   ```
+   > **▶️ Live demo:** https://moviegraph.vercel.app · ...
+   ```
+   then commit and push:
+   ```bash
+   git commit -am "Add live demo link" && git push
+   ```
+2. **If the repo is private, add Wexa as a collaborator** (they request access in the brief):
+   GitHub → **Settings → Collaborators → Add people**.
+3. **Keep the CognoDB instance running** until the review is done — Wexa may test against live data.
 
 ---
 
