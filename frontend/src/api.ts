@@ -47,6 +47,7 @@ export interface MovieSummary {
   rating: number;
   tagline: string;
   genres?: string[];
+  poster_url?: string | null;
 }
 
 export interface CastMember {

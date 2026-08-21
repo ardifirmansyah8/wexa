@@ -3,7 +3,7 @@ import { api } from "../api";
 import { useAsync } from "../useAsync";
 import MovieCard from "../components/MovieCard";
 import { Spinner, ErrorState, EmptyState } from "../components/states";
-import { posterStyle, initials } from "../components/Poster";
+import { Poster } from "../components/Poster";
 
 export default function MovieDetailPage() {
   const { id = "" } = useParams();
@@ -29,11 +29,7 @@ export default function MovieDetailPage() {
       </Link>
 
       <section className="detail-hero">
-        <div className="detail-poster" style={{ ...posterStyle(m.title), display: "grid", placeItems: "center" }}>
-          <span style={{ fontSize: 52, fontWeight: 800, color: "#fff", opacity: 0.32 }}>
-            {initials(m.title)}
-          </span>
-        </div>
+        <Poster title={m.title} posterUrl={m.poster_url} className="detail-poster" />
         <div>
           <div className="meta-row" style={{ marginBottom: 6 }}>
             {m.genres?.map((g) => (

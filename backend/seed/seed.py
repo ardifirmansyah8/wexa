@@ -74,7 +74,8 @@ def load_movie(session, movie: dict) -> None:
         """
         MERGE (m:Movie {id: $id})
         SET m.title = $title, m.year = $year, m.runtime = $runtime,
-            m.rating = $rating, m.tagline = $tagline, m.plot = $plot
+            m.rating = $rating, m.tagline = $tagline, m.plot = $plot,
+            m.poster_url = $poster_url
 
         MERGE (d:Person {name: $director})
         MERGE (d)-[:DIRECTED]->(m)
@@ -103,6 +104,7 @@ def load_movie(session, movie: dict) -> None:
             "rating": movie["rating"],
             "tagline": movie["tagline"],
             "plot": movie["plot"],
+            "poster_url": movie.get("poster_url"),
             "director": movie["director"],
             "genres": movie["genres"],
             "keywords": movie["keywords"],

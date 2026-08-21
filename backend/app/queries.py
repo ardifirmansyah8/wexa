@@ -25,7 +25,8 @@ def list_movies(search: str | None, genre: str | None, limit: int, skip: int) ->
     WITH m, collect(DISTINCT g.name) AS genres
     WHERE $genre IS NULL OR $genre IN genres
     RETURN m.id AS id, m.title AS title, m.year AS year,
-           m.rating AS rating, m.tagline AS tagline, genres
+           m.rating AS rating, m.tagline AS tagline,
+           m.poster_url AS poster_url, genres
     ORDER BY m.rating DESC, m.title ASC
     SKIP $skip LIMIT $limit
     """
@@ -75,6 +76,7 @@ def get_movie(movie_id: str) -> dict[str, Any] | None:
          collect(DISTINCT {name: a.name, character: r.character, order: r.order}) AS cast
     RETURN m.id AS id, m.title AS title, m.year AS year, m.runtime AS runtime,
            m.rating AS rating, m.tagline AS tagline, m.plot AS plot,
+           m.poster_url AS poster_url,
            genres, keywords, directors,
            [c IN cast WHERE c.name IS NOT NULL] AS cast
     """
@@ -133,7 +135,7 @@ def more_like_this(movie_id: str, limit: int) -> list[dict[str, Any]]:
     WITH rec, sum(w) AS score, collect(DISTINCT via) AS reasons
     RETURN rec.id AS id, rec.title AS title, rec.year AS year,
            rec.rating AS rating, rec.tagline AS tagline,
-           score, reasons
+           rec.poster_url AS poster_url, score, reasons
     ORDER BY score DESC, rec.rating DESC
     LIMIT $limit
     """
@@ -154,6 +156,7 @@ def fans_also_liked(movie_id: str, limit: int) -> list[dict[str, Any]]:
     WITH rec, count(DISTINCT u) AS fans, avg(r2.stars) AS avg_stars
     RETURN rec.id AS id, rec.title AS title, rec.year AS year,
            rec.rating AS rating, rec.tagline AS tagline,
+           rec.poster_url AS poster_url,
            fans, round(avg_stars * 100.0) / 100.0 AS avg_stars
     ORDER BY fans DESC, avg_stars DESC
     LIMIT $limit
@@ -180,6 +183,7 @@ def recommend_for_user(user_id: str, limit: int) -> list[dict[str, Any]]:
     WITH rec, count(DISTINCT peer) AS peers, avg(r3.stars) AS avg_stars
     RETURN rec.id AS id, rec.title AS title, rec.year AS year,
            rec.rating AS rating, rec.tagline AS tagline,
+           rec.poster_url AS poster_url,
            peers, round(avg_stars * 100.0) / 100.0 AS avg_stars
     ORDER BY peers DESC, avg_stars DESC
     LIMIT $limit

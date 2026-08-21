@@ -1,7 +1,9 @@
-// The dataset ships no image assets (keeping the repo self-contained), so we
-// render deterministic gradient "posters" derived from each title. Same title
-// always yields the same colours, which reads as intentional design rather
-// than a missing-image placeholder.
+import { useState, ReactNode } from "react";
+
+// Posters render a real image when a `posterUrl` is available and gracefully
+// fall back to a deterministic gradient + initials otherwise (missing data, a
+// broken URL, or a slow network). Same title always yields the same gradient,
+// so the fallback reads as intentional design rather than a missing asset.
 
 const PALETTES: [string, string][] = [
   ["#7c5cff", "#3a2a8c"],
@@ -26,9 +28,7 @@ function hash(str: string): number {
 export function posterStyle(title: string): React.CSSProperties {
   const [a, b] = PALETTES[hash(title) % PALETTES.length];
   const angle = 120 + (hash(title) % 90);
-  return {
-    background: `linear-gradient(${angle}deg, ${a}, ${b})`,
-  };
+  return { background: `linear-gradient(${angle}deg, ${a}, ${b})` };
 }
 
 export function initials(title: string): string {
@@ -39,4 +39,36 @@ export function initials(title: string): string {
     .slice(0, 2)
     .map((w) => w[0]?.toUpperCase())
     .join("");
+}
+
+interface PosterProps {
+  title: string;
+  posterUrl?: string | null;
+  className?: string;
+  /** Overlays (rating badge, year, …) rendered on top of the poster. */
+  children?: ReactNode;
+}
+
+export function Poster({ title, posterUrl, className, children }: PosterProps) {
+  const [failed, setFailed] = useState(false);
+  const showImage = Boolean(posterUrl) && !failed;
+
+  return (
+    <div className={className} style={showImage ? undefined : posterStyle(title)}>
+      {showImage ? (
+        <img
+          className="poster-img"
+          src={posterUrl as string}
+          alt={`${title} poster`}
+          loading="lazy"
+          onError={() => setFailed(true)}
+        />
+      ) : (
+        <span className="poster-initials" aria-hidden>
+          {initials(title)}
+        </span>
+      )}
+      {children}
+    </div>
+  );
 }
