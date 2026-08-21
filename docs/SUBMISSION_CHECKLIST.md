@@ -29,7 +29,7 @@ Tracks every requirement in the brief against what's done. `[x]` = complete, `[ 
 - [x] Full source code — app, data-loading scripts, Cypher queries
 - [x] README — use case, "Why a graph database?", diagram, setup/run, queries explained
 - [x] README — screenshots of the UI (`docs/screenshots/`)
-- [ ] **Hosted application demo link** (mandatory) — deploy, then paste the URL into the README
+- [x] **Hosted application demo link** (mandatory) — https://moviegraph.vercel.app (Vercel, live)
 - [x] **Short screen recording** (mandatory) — silent walkthrough at `docs/demo/demo.gif`
       (+ `demo.mp4`), embedded in the README. Optionally re-record with narration for submission.
 

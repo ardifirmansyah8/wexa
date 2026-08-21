@@ -8,8 +8,12 @@ database ([CognoDB](https://console.cognodb.com), openCypher over Bolt).
 Browse films → open one → get recommendations that are literally graph traversals → trace the
 "six degrees" between any two actors → get picks tuned to a viewer's taste.
 
-> **▶️ Live demo:** _add your hosted URL here after deploying_ · **Deploy guide:**
+> **▶️ Live demo: https://moviegraph.vercel.app** · **API:**
+> [`/api/health`](https://moviegraph-api.vercel.app/api/health) · **Deploy guide:**
 > [`docs/DEPLOY.md`](docs/DEPLOY.md) · **Walkthrough video:** below
+>
+> <sub>Hosted free on Vercel + CognoDB. First load after a while may take a few seconds while the
+> serverless backend wakes the database.</sub>
 
 ![MovieGraph walkthrough](docs/demo/demo.gif)
 
