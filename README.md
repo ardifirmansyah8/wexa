@@ -66,6 +66,22 @@ carry the app:
 Run [`backend/smoke_test.py`](backend/smoke_test.py) after seeding to fire every query at your
 live instance and confirm the data layer is healthy (14 checks).
 
+## Tests
+
+Two levels. **Unit tests** run offline (the driver and queries are mocked) and cover config,
+error translation, query post-processing, and the HTTP layer (validation, 404, and the graceful
+503). **The smoke test** is the integration check — it needs a live instance and verifies the
+Cypher itself.
+
+```bash
+# unit tests — no database needed
+cd backend && pip install -r requirements-dev.txt && python -m pytest   # 18 tests
+cd frontend && npm test                                                 # 6 tests
+
+# integration — against your seeded CognoDB
+cd backend && python smoke_test.py                                      # 14 checks
+```
+
 ## How it fits together
 
 ```
@@ -136,9 +152,9 @@ Step-by-step (with the CORS ordering gotcha and troubleshooting): **[`docs/DEPLO
 backend/
   app/        config · db · queries · routers · main
   seed/       seed.py · enrich_posters.py · data/movies.json
-  smoke_test.py
+  tests/      unit tests (pytest) · smoke_test.py (live integration)
 frontend/
-  src/        api.ts · useAsync.ts · pages/ · components/
+  src/        api.ts · useAsync.ts · pages/ · components/ · *.test.tsx
 docs/         DEPLOY.md · SUBMISSION_CHECKLIST.md · screenshots/
 ```
 

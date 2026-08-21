@@ -7,6 +7,7 @@ the API routes.
 from __future__ import annotations
 
 import logging
+from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -19,10 +20,19 @@ from .routers import api
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("moviegraph")
 
+
+@asynccontextmanager
+async def lifespan(_: FastAPI):
+    yield
+    # Release the shared driver's connection pool on shutdown.
+    close_driver()
+
+
 app = FastAPI(
     title="MovieGraph API",
     version="1.0.0",
     description="A graph-native movie recommendation service backed by CognoDB.",
+    lifespan=lifespan,
 )
 
 app.add_middleware(
@@ -61,8 +71,3 @@ def health() -> dict[str, object]:
 
 
 app.include_router(api.router, prefix="/api")
-
-
-@app.on_event("shutdown")
-def _shutdown() -> None:
-    close_driver()
