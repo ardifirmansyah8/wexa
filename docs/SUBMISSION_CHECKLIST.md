@@ -34,8 +34,7 @@ Tracks every requirement in the brief against what's done. `[x]` = complete, `[ 
 
 ## B. Your actions to submit
 
-- [ ] **Push to GitHub**
-      `gh repo create moviegraph --private --source=. --remote=origin --push`
+- [x] **Push to GitHub** — https://github.com/ardifirmansyah8/wexa (`.env` confirmed not tracked)
 - [ ] **Deploy the backend** (Render) — follow [`DEPLOY.md`](DEPLOY.md) §1
 - [ ] **Deploy the frontend** (Vercel) — [`DEPLOY.md`](DEPLOY.md) §2
 - [ ] **Lock down CORS** to the real frontend URL — [`DEPLOY.md`](DEPLOY.md) §3
