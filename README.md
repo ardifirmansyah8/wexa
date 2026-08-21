@@ -228,7 +228,10 @@ Open **http://localhost:5173** and explore.
 
 ## Deployment
 
-The app is two independently-hostable pieces; any free tier works:
+**→ Full step-by-step guide: [`docs/DEPLOY.md`](docs/DEPLOY.md)** (Render + Vercel, with the
+CORS/`VITE_API_BASE` ordering and troubleshooting).
+
+In short — the app is two independently-hostable pieces; any free tier works:
 
 - **Backend (FastAPI):** deploy `backend/` to Render / Railway / Fly.io. Start command:
   `uvicorn app.main:app --host 0.0.0.0 --port $PORT`. Set `NEO4J_URI`, `NEO4J_PASSWORD` and
@@ -242,13 +245,25 @@ The app is two independently-hostable pieces; any free tier works:
 
 ## Screenshots
 
-> _Add screenshots here after running the app locally (the assignment requires them)._
-> Suggested captures, saved under `docs/screenshots/`:
+**Browse** — search, genre filters and the full catalogue, with live graph stats up top.
 
-| | |
-| --- | --- |
-| ![Browse](docs/screenshots/browse.png) | ![Movie detail + recommendations](docs/screenshots/detail.png) |
-| ![Six degrees](docs/screenshots/six-degrees.png) | ![For you](docs/screenshots/for-you.png) |
+![Browse](docs/screenshots/browse.png)
+
+**Movie detail** — cast, plus two graph-powered recommendation rows: _More like this_
+(content-based, with explainable "genre / shared cast / director" reason tags) and _Fans also
+liked_ (collaborative filtering).
+
+![Movie detail with recommendations](docs/screenshots/detail.png)
+
+**Six degrees** — the shortest chain of shared films between any two actors, a variable-length
+`shortestPath` traversal.
+
+![Six degrees of separation](docs/screenshots/six-degrees.png)
+
+**For you** — personalised recommendations for a viewer, drawn from like-minded viewers'
+ratings.
+
+![Made for you](docs/screenshots/for-you.png)
 
 ---
 
