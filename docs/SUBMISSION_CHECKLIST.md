@@ -43,9 +43,6 @@ Tracks every requirement in the brief against what's done. `[x]` = complete, `[ 
 - [x] **Screen recording** — walkthrough GIF + MP4 in `docs/demo/`, embedded in README
       (optionally re-record with your narration for a more personal submission)
 - [x] **Add the live demo link** to the top of the README
-- [ ] If the repo is **private**, add Wexa as a collaborator (they request access in the brief)
-- [ ] **Email hr@wexa.ai** — subject: `CognoDB Assignment 2 – <Your Name>`, include repo URL + demo link
-- [ ] Keep the CognoDB instance **running** until you hear back (they may test against live data)
 
 ### Tests (bonus — not required by the brief)
 - [x] Backend unit tests (pytest, offline) — 18 passing
