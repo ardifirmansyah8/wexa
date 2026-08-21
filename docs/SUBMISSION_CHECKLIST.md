@@ -30,7 +30,8 @@ Tracks every requirement in the brief against what's done. `[x]` = complete, `[ 
 - [x] README — use case, "Why a graph database?", diagram, setup/run, queries explained
 - [x] README — screenshots of the UI (`docs/screenshots/`)
 - [ ] **Hosted application demo link** (mandatory) — deploy, then paste the URL into the README
-- [ ] **Short screen recording** (mandatory) — record a ~1 min walkthrough, link it in the README
+- [x] **Short screen recording** (mandatory) — silent walkthrough at `docs/demo/demo.gif`
+      (+ `demo.mp4`), embedded in the README. Optionally re-record with narration for submission.
 
 ## B. Your actions to submit
 
@@ -39,7 +40,8 @@ Tracks every requirement in the brief against what's done. `[x]` = complete, `[ 
 - [ ] **Deploy the frontend** (Vercel) — [`DEPLOY.md`](DEPLOY.md) §2
 - [ ] **Lock down CORS** to the real frontend URL — [`DEPLOY.md`](DEPLOY.md) §3
 - [ ] **Smoke-test the hosted demo** — click Browse → movie → Six Degrees → For You
-- [ ] **Record the screen recording** and add the link to the README
+- [x] **Screen recording** — walkthrough GIF + MP4 in `docs/demo/`, embedded in README
+      (optionally re-record with your narration for a more personal submission)
 - [ ] **Add the live demo link** to the top of the README
 - [ ] If the repo is **private**, add Wexa as a collaborator (they request access in the brief)
 - [ ] **Email hr@wexa.ai** — subject: `CognoDB Assignment 2 – <Your Name>`, include repo URL + demo link
