@@ -8,16 +8,50 @@
     "tagline": "Your mind is the scene of the crime.",
     "plot": "A thief who steals corporate secrets through dream-sharing technology is given the inverse task of planting an idea into a target's subconscious.",
     "director": "Christopher Nolan",
-    "genres": ["Science Fiction", "Action", "Thriller"],
-    "keywords": ["dreams", "heist", "mind-bending", "subconscious"],
+    "genres": [
+      "Science Fiction",
+      "Action",
+      "Thriller"
+    ],
+    "keywords": [
+      "dreams",
+      "heist",
+      "mind-bending",
+      "subconscious"
+    ],
     "cast": [
-      {"name": "Leonardo DiCaprio", "character": "Dom Cobb", "order": 1},
-      {"name": "Joseph Gordon-Levitt", "character": "Arthur", "order": 2},
-      {"name": "Elliot Page", "character": "Ariadne", "order": 3},
-      {"name": "Tom Hardy", "character": "Eames", "order": 4},
-      {"name": "Cillian Murphy", "character": "Robert Fischer", "order": 5},
-      {"name": "Michael Caine", "character": "Professor Miles", "order": 6}
-    ]
+      {
+        "name": "Leonardo DiCaprio",
+        "character": "Dom Cobb",
+        "order": 1
+      },
+      {
+        "name": "Joseph Gordon-Levitt",
+        "character": "Arthur",
+        "order": 2
+      },
+      {
+        "name": "Elliot Page",
+        "character": "Ariadne",
+        "order": 3
+      },
+      {
+        "name": "Tom Hardy",
+        "character": "Eames",
+        "order": 4
+      },
+      {
+        "name": "Cillian Murphy",
+        "character": "Robert Fischer",
+        "order": 5
+      },
+      {
+        "name": "Michael Caine",
+        "character": "Professor Miles",
+        "order": 6
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/xlaY2zyzMfkhk0HSC5VUwzoZPU1.jpg"
   },
   {
     "id": "the-dark-knight",
@@ -28,16 +62,51 @@
     "tagline": "Why so serious?",
     "plot": "Batman faces the Joker, a criminal mastermind who wants to plunge Gotham City into anarchy.",
     "director": "Christopher Nolan",
-    "genres": ["Action", "Crime", "Drama", "Thriller"],
-    "keywords": ["superhero", "vigilante", "anarchy", "moral-dilemma"],
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "keywords": [
+      "superhero",
+      "vigilante",
+      "anarchy",
+      "moral-dilemma"
+    ],
     "cast": [
-      {"name": "Christian Bale", "character": "Bruce Wayne / Batman", "order": 1},
-      {"name": "Heath Ledger", "character": "The Joker", "order": 2},
-      {"name": "Aaron Eckhart", "character": "Harvey Dent", "order": 3},
-      {"name": "Michael Caine", "character": "Alfred", "order": 4},
-      {"name": "Gary Oldman", "character": "James Gordon", "order": 5},
-      {"name": "Cillian Murphy", "character": "Scarecrow", "order": 6}
-    ]
+      {
+        "name": "Christian Bale",
+        "character": "Bruce Wayne / Batman",
+        "order": 1
+      },
+      {
+        "name": "Heath Ledger",
+        "character": "The Joker",
+        "order": 2
+      },
+      {
+        "name": "Aaron Eckhart",
+        "character": "Harvey Dent",
+        "order": 3
+      },
+      {
+        "name": "Michael Caine",
+        "character": "Alfred",
+        "order": 4
+      },
+      {
+        "name": "Gary Oldman",
+        "character": "James Gordon",
+        "order": 5
+      },
+      {
+        "name": "Cillian Murphy",
+        "character": "Scarecrow",
+        "order": 6
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
   },
   {
     "id": "interstellar",
@@ -48,15 +117,45 @@
     "tagline": "Mankind was born on Earth. It was never meant to die here.",
     "plot": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
     "director": "Christopher Nolan",
-    "genres": ["Science Fiction", "Adventure", "Drama"],
-    "keywords": ["space", "time-dilation", "wormhole", "survival"],
+    "genres": [
+      "Science Fiction",
+      "Adventure",
+      "Drama"
+    ],
+    "keywords": [
+      "space",
+      "time-dilation",
+      "wormhole",
+      "survival"
+    ],
     "cast": [
-      {"name": "Matthew McConaughey", "character": "Cooper", "order": 1},
-      {"name": "Anne Hathaway", "character": "Brand", "order": 2},
-      {"name": "Jessica Chastain", "character": "Murph", "order": 3},
-      {"name": "Michael Caine", "character": "Professor Brand", "order": 4},
-      {"name": "Matt Damon", "character": "Mann", "order": 5}
-    ]
+      {
+        "name": "Matthew McConaughey",
+        "character": "Cooper",
+        "order": 1
+      },
+      {
+        "name": "Anne Hathaway",
+        "character": "Brand",
+        "order": 2
+      },
+      {
+        "name": "Jessica Chastain",
+        "character": "Murph",
+        "order": 3
+      },
+      {
+        "name": "Michael Caine",
+        "character": "Professor Brand",
+        "order": 4
+      },
+      {
+        "name": "Matt Damon",
+        "character": "Mann",
+        "order": 5
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/yQvGrMoipbRoddT0ZR8tPoR7NfX.jpg"
   },
   {
     "id": "the-prestige",
@@ -67,14 +166,41 @@
     "tagline": "Are you watching closely?",
     "plot": "Two rival stage magicians in 19th-century London engage in a bitter battle of one-upmanship with tragic results.",
     "director": "Christopher Nolan",
-    "genres": ["Drama", "Mystery", "Science Fiction", "Thriller"],
-    "keywords": ["magic", "rivalry", "obsession", "twist"],
+    "genres": [
+      "Drama",
+      "Mystery",
+      "Science Fiction",
+      "Thriller"
+    ],
+    "keywords": [
+      "magic",
+      "rivalry",
+      "obsession",
+      "twist"
+    ],
     "cast": [
-      {"name": "Christian Bale", "character": "Alfred Borden", "order": 1},
-      {"name": "Hugh Jackman", "character": "Robert Angier", "order": 2},
-      {"name": "Michael Caine", "character": "Cutter", "order": 3},
-      {"name": "Scarlett Johansson", "character": "Olivia", "order": 4}
-    ]
+      {
+        "name": "Christian Bale",
+        "character": "Alfred Borden",
+        "order": 1
+      },
+      {
+        "name": "Hugh Jackman",
+        "character": "Robert Angier",
+        "order": 2
+      },
+      {
+        "name": "Michael Caine",
+        "character": "Cutter",
+        "order": 3
+      },
+      {
+        "name": "Scarlett Johansson",
+        "character": "Olivia",
+        "order": 4
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/Ag2B2KHKQPukjH7WutmgnnSNurZ.jpg"
   },
   {
     "id": "oppenheimer",
@@ -85,15 +211,45 @@
     "tagline": "The world forever changes.",
     "plot": "The story of J. Robert Oppenheimer and his role in the development of the atomic bomb.",
     "director": "Christopher Nolan",
-    "genres": ["Drama", "History", "Thriller"],
-    "keywords": ["biography", "world-war-two", "science", "morality"],
+    "genres": [
+      "Drama",
+      "History",
+      "Thriller"
+    ],
+    "keywords": [
+      "biography",
+      "world-war-two",
+      "science",
+      "morality"
+    ],
     "cast": [
-      {"name": "Cillian Murphy", "character": "J. Robert Oppenheimer", "order": 1},
-      {"name": "Emily Blunt", "character": "Kitty Oppenheimer", "order": 2},
-      {"name": "Matt Damon", "character": "Leslie Groves", "order": 3},
-      {"name": "Robert Downey Jr.", "character": "Lewis Strauss", "order": 4},
-      {"name": "Florence Pugh", "character": "Jean Tatlock", "order": 5}
-    ]
+      {
+        "name": "Cillian Murphy",
+        "character": "J. Robert Oppenheimer",
+        "order": 1
+      },
+      {
+        "name": "Emily Blunt",
+        "character": "Kitty Oppenheimer",
+        "order": 2
+      },
+      {
+        "name": "Matt Damon",
+        "character": "Leslie Groves",
+        "order": 3
+      },
+      {
+        "name": "Robert Downey Jr.",
+        "character": "Lewis Strauss",
+        "order": 4
+      },
+      {
+        "name": "Florence Pugh",
+        "character": "Jean Tatlock",
+        "order": 5
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
   },
   {
     "id": "the-departed",
@@ -104,15 +260,45 @@
     "tagline": "Cops or criminals. When you're facing a loaded gun, what's the difference?",
     "plot": "An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in Boston.",
     "director": "Martin Scorsese",
-    "genres": ["Crime", "Drama", "Thriller"],
-    "keywords": ["undercover", "mob", "betrayal", "boston"],
+    "genres": [
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "keywords": [
+      "undercover",
+      "mob",
+      "betrayal",
+      "boston"
+    ],
     "cast": [
-      {"name": "Leonardo DiCaprio", "character": "Billy Costigan", "order": 1},
-      {"name": "Matt Damon", "character": "Colin Sullivan", "order": 2},
-      {"name": "Jack Nicholson", "character": "Frank Costello", "order": 3},
-      {"name": "Mark Wahlberg", "character": "Dignam", "order": 4},
-      {"name": "Vera Farmiga", "character": "Madolyn", "order": 5}
-    ]
+      {
+        "name": "Leonardo DiCaprio",
+        "character": "Billy Costigan",
+        "order": 1
+      },
+      {
+        "name": "Matt Damon",
+        "character": "Colin Sullivan",
+        "order": 2
+      },
+      {
+        "name": "Jack Nicholson",
+        "character": "Frank Costello",
+        "order": 3
+      },
+      {
+        "name": "Mark Wahlberg",
+        "character": "Dignam",
+        "order": 4
+      },
+      {
+        "name": "Vera Farmiga",
+        "character": "Madolyn",
+        "order": 5
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/nT97ifVT2J1yMQmeq20Qblg61T.jpg"
   },
   {
     "id": "the-wolf-of-wall-street",
@@ -123,14 +309,41 @@
     "tagline": "More is never enough.",
     "plot": "Based on the true story of Jordan Belfort, from his rise to a wealthy stockbroker to his fall involving crime and corruption.",
     "director": "Martin Scorsese",
-    "genres": ["Biography", "Comedy", "Crime", "Drama"],
-    "keywords": ["wall-street", "greed", "excess", "true-story"],
+    "genres": [
+      "Biography",
+      "Comedy",
+      "Crime",
+      "Drama"
+    ],
+    "keywords": [
+      "wall-street",
+      "greed",
+      "excess",
+      "true-story"
+    ],
     "cast": [
-      {"name": "Leonardo DiCaprio", "character": "Jordan Belfort", "order": 1},
-      {"name": "Jonah Hill", "character": "Donnie Azoff", "order": 2},
-      {"name": "Margot Robbie", "character": "Naomi Lapaglia", "order": 3},
-      {"name": "Matthew McConaughey", "character": "Mark Hanna", "order": 4}
-    ]
+      {
+        "name": "Leonardo DiCaprio",
+        "character": "Jordan Belfort",
+        "order": 1
+      },
+      {
+        "name": "Jonah Hill",
+        "character": "Donnie Azoff",
+        "order": 2
+      },
+      {
+        "name": "Margot Robbie",
+        "character": "Naomi Lapaglia",
+        "order": 3
+      },
+      {
+        "name": "Matthew McConaughey",
+        "character": "Mark Hanna",
+        "order": 4
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/kW9LmvYHAaS9iA0tHmZVq8hQYoq.jpg"
   },
   {
     "id": "shutter-island",
@@ -141,14 +354,39 @@
     "tagline": "Someone is missing.",
     "plot": "A U.S. Marshal investigates the disappearance of a patient from a hospital for the criminally insane on a remote island.",
     "director": "Martin Scorsese",
-    "genres": ["Mystery", "Thriller"],
-    "keywords": ["psychological", "island", "twist", "asylum"],
+    "genres": [
+      "Mystery",
+      "Thriller"
+    ],
+    "keywords": [
+      "psychological",
+      "island",
+      "twist",
+      "asylum"
+    ],
     "cast": [
-      {"name": "Leonardo DiCaprio", "character": "Teddy Daniels", "order": 1},
-      {"name": "Mark Ruffalo", "character": "Chuck Aule", "order": 2},
-      {"name": "Ben Kingsley", "character": "Dr. Cawley", "order": 3},
-      {"name": "Michelle Williams", "character": "Dolores", "order": 4}
-    ]
+      {
+        "name": "Leonardo DiCaprio",
+        "character": "Teddy Daniels",
+        "order": 1
+      },
+      {
+        "name": "Mark Ruffalo",
+        "character": "Chuck Aule",
+        "order": 2
+      },
+      {
+        "name": "Ben Kingsley",
+        "character": "Dr. Cawley",
+        "order": 3
+      },
+      {
+        "name": "Michelle Williams",
+        "character": "Dolores",
+        "order": 4
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/nrmXQ0zcZUL8jFLrakWc90IR8z9.jpg"
   },
   {
     "id": "goodfellas",
@@ -159,13 +397,35 @@
     "tagline": "Three decades of life in the Mafia.",
     "plot": "The story of Henry Hill and his life in the mob, covering his relationship with his wife and his mob partners.",
     "director": "Martin Scorsese",
-    "genres": ["Biography", "Crime", "Drama"],
-    "keywords": ["mob", "true-story", "rise-and-fall", "new-york"],
+    "genres": [
+      "Biography",
+      "Crime",
+      "Drama"
+    ],
+    "keywords": [
+      "mob",
+      "true-story",
+      "rise-and-fall",
+      "new-york"
+    ],
     "cast": [
-      {"name": "Robert De Niro", "character": "James Conway", "order": 1},
-      {"name": "Ray Liotta", "character": "Henry Hill", "order": 2},
-      {"name": "Joe Pesci", "character": "Tommy DeVito", "order": 3}
-    ]
+      {
+        "name": "Robert De Niro",
+        "character": "James Conway",
+        "order": 1
+      },
+      {
+        "name": "Ray Liotta",
+        "character": "Henry Hill",
+        "order": 2
+      },
+      {
+        "name": "Joe Pesci",
+        "character": "Tommy DeVito",
+        "order": 3
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/9OkCLM73MIU2CrKZbqiT8Ln1wY2.jpg"
   },
   {
     "id": "django-unchained",
@@ -176,14 +436,39 @@
     "tagline": "Life, liberty and the pursuit of vengeance.",
     "plot": "A freed slave sets out to rescue his wife from a brutal Mississippi plantation owner with the help of a German bounty hunter.",
     "director": "Quentin Tarantino",
-    "genres": ["Drama", "Western"],
-    "keywords": ["revenge", "slavery", "bounty-hunter", "western"],
+    "genres": [
+      "Drama",
+      "Western"
+    ],
+    "keywords": [
+      "revenge",
+      "slavery",
+      "bounty-hunter",
+      "western"
+    ],
     "cast": [
-      {"name": "Jamie Foxx", "character": "Django", "order": 1},
-      {"name": "Christoph Waltz", "character": "Dr. King Schultz", "order": 2},
-      {"name": "Leonardo DiCaprio", "character": "Calvin Candie", "order": 3},
-      {"name": "Samuel L. Jackson", "character": "Stephen", "order": 4}
-    ]
+      {
+        "name": "Jamie Foxx",
+        "character": "Django",
+        "order": 1
+      },
+      {
+        "name": "Christoph Waltz",
+        "character": "Dr. King Schultz",
+        "order": 2
+      },
+      {
+        "name": "Leonardo DiCaprio",
+        "character": "Calvin Candie",
+        "order": 3
+      },
+      {
+        "name": "Samuel L. Jackson",
+        "character": "Stephen",
+        "order": 4
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/7oWY8VDWW7thTzWh3OKYRkWUlD5.jpg"
   },
   {
     "id": "pulp-fiction",
@@ -194,14 +479,39 @@
     "tagline": "Just because you are a character doesn't mean you have character.",
     "plot": "The lives of two mob hitmen, a boxer, and others intertwine in four tales of violence and redemption.",
     "director": "Quentin Tarantino",
-    "genres": ["Crime", "Drama"],
-    "keywords": ["nonlinear", "hitman", "crime", "cult-classic"],
+    "genres": [
+      "Crime",
+      "Drama"
+    ],
+    "keywords": [
+      "nonlinear",
+      "hitman",
+      "crime",
+      "cult-classic"
+    ],
     "cast": [
-      {"name": "John Travolta", "character": "Vincent Vega", "order": 1},
-      {"name": "Samuel L. Jackson", "character": "Jules Winnfield", "order": 2},
-      {"name": "Uma Thurman", "character": "Mia Wallace", "order": 3},
-      {"name": "Bruce Willis", "character": "Butch Coolidge", "order": 4}
-    ]
+      {
+        "name": "John Travolta",
+        "character": "Vincent Vega",
+        "order": 1
+      },
+      {
+        "name": "Samuel L. Jackson",
+        "character": "Jules Winnfield",
+        "order": 2
+      },
+      {
+        "name": "Uma Thurman",
+        "character": "Mia Wallace",
+        "order": 3
+      },
+      {
+        "name": "Bruce Willis",
+        "character": "Butch Coolidge",
+        "order": 4
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/vQWk5YBFWF4bZaofAbv0tShwBvQ.jpg"
   },
   {
     "id": "inglourious-basterds",
@@ -212,14 +522,40 @@
     "tagline": "Once upon a time in Nazi-occupied France.",
     "plot": "In Nazi-occupied France, a plan to assassinate Nazi leaders converges with a Jewish cinema owner's own plot for revenge.",
     "director": "Quentin Tarantino",
-    "genres": ["Adventure", "Drama", "War"],
-    "keywords": ["world-war-two", "revenge", "nazi", "alternate-history"],
+    "genres": [
+      "Adventure",
+      "Drama",
+      "War"
+    ],
+    "keywords": [
+      "world-war-two",
+      "revenge",
+      "nazi",
+      "alternate-history"
+    ],
     "cast": [
-      {"name": "Brad Pitt", "character": "Aldo Raine", "order": 1},
-      {"name": "Christoph Waltz", "character": "Hans Landa", "order": 2},
-      {"name": "Michael Fassbender", "character": "Archie Hicox", "order": 3},
-      {"name": "Diane Kruger", "character": "Bridget von Hammersmark", "order": 4}
-    ]
+      {
+        "name": "Brad Pitt",
+        "character": "Aldo Raine",
+        "order": 1
+      },
+      {
+        "name": "Christoph Waltz",
+        "character": "Hans Landa",
+        "order": 2
+      },
+      {
+        "name": "Michael Fassbender",
+        "character": "Archie Hicox",
+        "order": 3
+      },
+      {
+        "name": "Diane Kruger",
+        "character": "Bridget von Hammersmark",
+        "order": 4
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/aupnPtagH9JVBuMrGEanf4iqXEQ.jpg"
   },
   {
     "id": "once-upon-a-time-in-hollywood",
@@ -230,13 +566,34 @@
     "tagline": "In this town, it can all change... like that.",
     "plot": "A fading television actor and his stunt double navigate a changing Hollywood in 1969.",
     "director": "Quentin Tarantino",
-    "genres": ["Comedy", "Drama"],
-    "keywords": ["hollywood", "1960s", "friendship", "nostalgia"],
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "keywords": [
+      "hollywood",
+      "1960s",
+      "friendship",
+      "nostalgia"
+    ],
     "cast": [
-      {"name": "Leonardo DiCaprio", "character": "Rick Dalton", "order": 1},
-      {"name": "Brad Pitt", "character": "Cliff Booth", "order": 2},
-      {"name": "Margot Robbie", "character": "Sharon Tate", "order": 3}
-    ]
+      {
+        "name": "Leonardo DiCaprio",
+        "character": "Rick Dalton",
+        "order": 1
+      },
+      {
+        "name": "Brad Pitt",
+        "character": "Cliff Booth",
+        "order": 2
+      },
+      {
+        "name": "Margot Robbie",
+        "character": "Sharon Tate",
+        "order": 3
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/8j58iEBw9pOXFD2L0nt0ZXeHviB.jpg"
   },
   {
     "id": "titanic",
@@ -247,13 +604,34 @@
     "tagline": "Nothing on Earth could come between them.",
     "plot": "A seventeen-year-old aristocrat falls in love with a poor artist aboard the ill-fated R.M.S. Titanic.",
     "director": "James Cameron",
-    "genres": ["Drama", "Romance"],
-    "keywords": ["shipwreck", "romance", "class-divide", "disaster"],
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "keywords": [
+      "shipwreck",
+      "romance",
+      "class-divide",
+      "disaster"
+    ],
     "cast": [
-      {"name": "Leonardo DiCaprio", "character": "Jack Dawson", "order": 1},
-      {"name": "Kate Winslet", "character": "Rose DeWitt Bukater", "order": 2},
-      {"name": "Billy Zane", "character": "Cal Hockley", "order": 3}
-    ]
+      {
+        "name": "Leonardo DiCaprio",
+        "character": "Jack Dawson",
+        "order": 1
+      },
+      {
+        "name": "Kate Winslet",
+        "character": "Rose DeWitt Bukater",
+        "order": 2
+      },
+      {
+        "name": "Billy Zane",
+        "character": "Cal Hockley",
+        "order": 3
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg"
   },
   {
     "id": "avatar",
@@ -264,13 +642,35 @@
     "tagline": "Enter the world of Pandora.",
     "plot": "A paraplegic Marine dispatched to the moon Pandora becomes torn between following orders and protecting the world he feels is his home.",
     "director": "James Cameron",
-    "genres": ["Science Fiction", "Adventure", "Action"],
-    "keywords": ["alien-world", "colonialism", "nature", "avatar"],
+    "genres": [
+      "Science Fiction",
+      "Adventure",
+      "Action"
+    ],
+    "keywords": [
+      "alien-world",
+      "colonialism",
+      "nature",
+      "avatar"
+    ],
     "cast": [
-      {"name": "Sam Worthington", "character": "Jake Sully", "order": 1},
-      {"name": "Zoe Saldana", "character": "Neytiri", "order": 2},
-      {"name": "Sigourney Weaver", "character": "Dr. Grace Augustine", "order": 3}
-    ]
+      {
+        "name": "Sam Worthington",
+        "character": "Jake Sully",
+        "order": 1
+      },
+      {
+        "name": "Zoe Saldana",
+        "character": "Neytiri",
+        "order": 2
+      },
+      {
+        "name": "Sigourney Weaver",
+        "character": "Dr. Grace Augustine",
+        "order": 3
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/gKY6q7SjCkAU6FqvqWybDYgUKIF.jpg"
   },
   {
     "id": "the-revenant",
@@ -281,13 +681,35 @@
     "tagline": "(Never lose faith).",
     "plot": "A frontiersman on a fur trading expedition fights for survival after being mauled by a bear and left for dead by his companions.",
     "director": "Alejandro G. Inarritu",
-    "genres": ["Adventure", "Drama", "Western"],
-    "keywords": ["survival", "revenge", "wilderness", "true-story"],
+    "genres": [
+      "Adventure",
+      "Drama",
+      "Western"
+    ],
+    "keywords": [
+      "survival",
+      "revenge",
+      "wilderness",
+      "true-story"
+    ],
     "cast": [
-      {"name": "Leonardo DiCaprio", "character": "Hugh Glass", "order": 1},
-      {"name": "Tom Hardy", "character": "John Fitzgerald", "order": 2},
-      {"name": "Domhnall Gleeson", "character": "Captain Andrew Henry", "order": 3}
-    ]
+      {
+        "name": "Leonardo DiCaprio",
+        "character": "Hugh Glass",
+        "order": 1
+      },
+      {
+        "name": "Tom Hardy",
+        "character": "John Fitzgerald",
+        "order": 2
+      },
+      {
+        "name": "Domhnall Gleeson",
+        "character": "Captain Andrew Henry",
+        "order": 3
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/ji3ecJphATlVgWNY0B0RVXZizdf.jpg"
   },
   {
     "id": "mad-max-fury-road",
@@ -298,13 +720,35 @@
     "tagline": "What a lovely day.",
     "plot": "In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland with the aid of a group of female prisoners and a drifter named Max.",
     "director": "George Miller",
-    "genres": ["Action", "Adventure", "Science Fiction"],
-    "keywords": ["post-apocalyptic", "chase", "desert", "rebellion"],
+    "genres": [
+      "Action",
+      "Adventure",
+      "Science Fiction"
+    ],
+    "keywords": [
+      "post-apocalyptic",
+      "chase",
+      "desert",
+      "rebellion"
+    ],
     "cast": [
-      {"name": "Tom Hardy", "character": "Max Rockatansky", "order": 1},
-      {"name": "Charlize Theron", "character": "Imperator Furiosa", "order": 2},
-      {"name": "Nicholas Hoult", "character": "Nux", "order": 3}
-    ]
+      {
+        "name": "Tom Hardy",
+        "character": "Max Rockatansky",
+        "order": 1
+      },
+      {
+        "name": "Charlize Theron",
+        "character": "Imperator Furiosa",
+        "order": 2
+      },
+      {
+        "name": "Nicholas Hoult",
+        "character": "Nux",
+        "order": 3
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/ulcAi4dKpAjHwYGS08vNyx9H6I9.jpg"
   },
   {
     "id": "iron-man",
@@ -315,13 +759,35 @@
     "tagline": "Heroes aren't born. They're built.",
     "plot": "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.",
     "director": "Jon Favreau",
-    "genres": ["Action", "Science Fiction", "Adventure"],
-    "keywords": ["superhero", "technology", "origin-story", "marvel"],
+    "genres": [
+      "Action",
+      "Science Fiction",
+      "Adventure"
+    ],
+    "keywords": [
+      "superhero",
+      "technology",
+      "origin-story",
+      "marvel"
+    ],
     "cast": [
-      {"name": "Robert Downey Jr.", "character": "Tony Stark", "order": 1},
-      {"name": "Gwyneth Paltrow", "character": "Pepper Potts", "order": 2},
-      {"name": "Jeff Bridges", "character": "Obadiah Stane", "order": 3}
-    ]
+      {
+        "name": "Robert Downey Jr.",
+        "character": "Tony Stark",
+        "order": 1
+      },
+      {
+        "name": "Gwyneth Paltrow",
+        "character": "Pepper Potts",
+        "order": 2
+      },
+      {
+        "name": "Jeff Bridges",
+        "character": "Obadiah Stane",
+        "order": 3
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/78lPtwv72eTNqFW9COBYI0dWDJa.jpg"
   },
   {
     "id": "the-avengers",
@@ -332,15 +798,45 @@
     "tagline": "Some assembly required.",
     "plot": "Earth's mightiest heroes must come together to stop Loki and his alien army from enslaving humanity.",
     "director": "Joss Whedon",
-    "genres": ["Action", "Science Fiction", "Adventure"],
-    "keywords": ["superhero", "team-up", "alien-invasion", "marvel"],
+    "genres": [
+      "Action",
+      "Science Fiction",
+      "Adventure"
+    ],
+    "keywords": [
+      "superhero",
+      "team-up",
+      "alien-invasion",
+      "marvel"
+    ],
     "cast": [
-      {"name": "Robert Downey Jr.", "character": "Tony Stark / Iron Man", "order": 1},
-      {"name": "Chris Evans", "character": "Steve Rogers / Captain America", "order": 2},
-      {"name": "Mark Ruffalo", "character": "Bruce Banner / Hulk", "order": 3},
-      {"name": "Scarlett Johansson", "character": "Natasha Romanoff", "order": 4},
-      {"name": "Chris Hemsworth", "character": "Thor", "order": 5}
-    ]
+      {
+        "name": "Robert Downey Jr.",
+        "character": "Tony Stark / Iron Man",
+        "order": 1
+      },
+      {
+        "name": "Chris Evans",
+        "character": "Steve Rogers / Captain America",
+        "order": 2
+      },
+      {
+        "name": "Mark Ruffalo",
+        "character": "Bruce Banner / Hulk",
+        "order": 3
+      },
+      {
+        "name": "Scarlett Johansson",
+        "character": "Natasha Romanoff",
+        "order": 4
+      },
+      {
+        "name": "Chris Hemsworth",
+        "character": "Thor",
+        "order": 5
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/RYMX2wcKCBAr24UyPD7xwmjaTn.jpg"
   },
   {
     "id": "avengers-endgame",
@@ -351,15 +847,45 @@
     "tagline": "Avenge the fallen.",
     "plot": "After the devastating events of Infinity War, the Avengers assemble once more to reverse Thanos' actions and restore balance to the universe.",
     "director": "Anthony Russo",
-    "genres": ["Action", "Science Fiction", "Adventure"],
-    "keywords": ["superhero", "time-travel", "team-up", "marvel"],
+    "genres": [
+      "Action",
+      "Science Fiction",
+      "Adventure"
+    ],
+    "keywords": [
+      "superhero",
+      "time-travel",
+      "team-up",
+      "marvel"
+    ],
     "cast": [
-      {"name": "Robert Downey Jr.", "character": "Tony Stark / Iron Man", "order": 1},
-      {"name": "Chris Evans", "character": "Steve Rogers / Captain America", "order": 2},
-      {"name": "Scarlett Johansson", "character": "Natasha Romanoff", "order": 3},
-      {"name": "Mark Ruffalo", "character": "Bruce Banner / Hulk", "order": 4},
-      {"name": "Josh Brolin", "character": "Thanos", "order": 5}
-    ]
+      {
+        "name": "Robert Downey Jr.",
+        "character": "Tony Stark / Iron Man",
+        "order": 1
+      },
+      {
+        "name": "Chris Evans",
+        "character": "Steve Rogers / Captain America",
+        "order": 2
+      },
+      {
+        "name": "Scarlett Johansson",
+        "character": "Natasha Romanoff",
+        "order": 3
+      },
+      {
+        "name": "Mark Ruffalo",
+        "character": "Bruce Banner / Hulk",
+        "order": 4
+      },
+      {
+        "name": "Josh Brolin",
+        "character": "Thanos",
+        "order": 5
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg"
   },
   {
     "id": "black-widow",
@@ -370,13 +896,35 @@
     "tagline": "Her world. Her secrets. Her legacy.",
     "plot": "Natasha Romanoff confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises.",
     "director": "Cate Shortland",
-    "genres": ["Action", "Science Fiction", "Adventure"],
-    "keywords": ["superhero", "spy", "family", "marvel"],
+    "genres": [
+      "Action",
+      "Science Fiction",
+      "Adventure"
+    ],
+    "keywords": [
+      "superhero",
+      "spy",
+      "family",
+      "marvel"
+    ],
     "cast": [
-      {"name": "Scarlett Johansson", "character": "Natasha Romanoff", "order": 1},
-      {"name": "Florence Pugh", "character": "Yelena Belova", "order": 2},
-      {"name": "David Harbour", "character": "Alexei", "order": 3}
-    ]
+      {
+        "name": "Scarlett Johansson",
+        "character": "Natasha Romanoff",
+        "order": 1
+      },
+      {
+        "name": "Florence Pugh",
+        "character": "Yelena Belova",
+        "order": 2
+      },
+      {
+        "name": "David Harbour",
+        "character": "Alexei",
+        "order": 3
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/qAZ0pzat24kLdO3o8ejmbLxyOac.jpg"
   },
   {
     "id": "forrest-gump",
@@ -387,13 +935,34 @@
     "tagline": "Life is like a box of chocolates... you never know what you're gonna get.",
     "plot": "The presidencies of Kennedy and Johnson, Vietnam, and more unfold from the perspective of an Alabama man with an IQ of 75.",
     "director": "Robert Zemeckis",
-    "genres": ["Drama", "Romance"],
-    "keywords": ["life-story", "innocence", "vietnam", "americana"],
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "keywords": [
+      "life-story",
+      "innocence",
+      "vietnam",
+      "americana"
+    ],
     "cast": [
-      {"name": "Tom Hanks", "character": "Forrest Gump", "order": 1},
-      {"name": "Robin Wright", "character": "Jenny Curran", "order": 2},
-      {"name": "Gary Sinise", "character": "Lieutenant Dan", "order": 3}
-    ]
+      {
+        "name": "Tom Hanks",
+        "character": "Forrest Gump",
+        "order": 1
+      },
+      {
+        "name": "Robin Wright",
+        "character": "Jenny Curran",
+        "order": 2
+      },
+      {
+        "name": "Gary Sinise",
+        "character": "Lieutenant Dan",
+        "order": 3
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/Cw4hIUIAmSYfK9QfaUW5igp9La.jpg"
   },
   {
     "id": "cast-away",
@@ -404,12 +973,29 @@
     "tagline": "At the edge of the world, his journey begins.",
     "plot": "A FedEx executive must transform himself physically and emotionally to survive a crash landing on a deserted island.",
     "director": "Robert Zemeckis",
-    "genres": ["Adventure", "Drama"],
-    "keywords": ["survival", "island", "isolation", "resilience"],
+    "genres": [
+      "Adventure",
+      "Drama"
+    ],
+    "keywords": [
+      "survival",
+      "island",
+      "isolation",
+      "resilience"
+    ],
     "cast": [
-      {"name": "Tom Hanks", "character": "Chuck Noland", "order": 1},
-      {"name": "Helen Hunt", "character": "Kelly Frears", "order": 2}
-    ]
+      {
+        "name": "Tom Hanks",
+        "character": "Chuck Noland",
+        "order": 1
+      },
+      {
+        "name": "Helen Hunt",
+        "character": "Kelly Frears",
+        "order": 2
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/7lLJgKnAicAcR5UEuo8xhSMj18w.jpg"
   },
   {
     "id": "saving-private-ryan",
@@ -420,13 +1006,34 @@
     "tagline": "The mission is a man.",
     "plot": "Following the Normandy Landings, a group of U.S. soldiers go behind enemy lines to retrieve a paratrooper whose brothers have been killed in action.",
     "director": "Steven Spielberg",
-    "genres": ["Drama", "War"],
-    "keywords": ["world-war-two", "d-day", "brotherhood", "sacrifice"],
+    "genres": [
+      "Drama",
+      "War"
+    ],
+    "keywords": [
+      "world-war-two",
+      "d-day",
+      "brotherhood",
+      "sacrifice"
+    ],
     "cast": [
-      {"name": "Tom Hanks", "character": "Captain Miller", "order": 1},
-      {"name": "Matt Damon", "character": "Private Ryan", "order": 2},
-      {"name": "Tom Sizemore", "character": "Sergeant Horvath", "order": 3}
-    ]
+      {
+        "name": "Tom Hanks",
+        "character": "Captain Miller",
+        "order": 1
+      },
+      {
+        "name": "Matt Damon",
+        "character": "Private Ryan",
+        "order": 2
+      },
+      {
+        "name": "Tom Sizemore",
+        "character": "Sergeant Horvath",
+        "order": 3
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/uqx37cS8cpHg8U35f9U5IBlrCV3.jpg"
   },
   {
     "id": "catch-me-if-you-can",
@@ -437,13 +1044,35 @@
     "tagline": "The true story of a real fake.",
     "plot": "A young con artist successfully passes himself off as an airline pilot, doctor, and lawyer while being pursued by an FBI agent.",
     "director": "Steven Spielberg",
-    "genres": ["Biography", "Crime", "Drama"],
-    "keywords": ["con-artist", "cat-and-mouse", "true-story", "1960s"],
+    "genres": [
+      "Biography",
+      "Crime",
+      "Drama"
+    ],
+    "keywords": [
+      "con-artist",
+      "cat-and-mouse",
+      "true-story",
+      "1960s"
+    ],
     "cast": [
-      {"name": "Leonardo DiCaprio", "character": "Frank Abagnale Jr.", "order": 1},
-      {"name": "Tom Hanks", "character": "Carl Hanratty", "order": 2},
-      {"name": "Christopher Walken", "character": "Frank Abagnale Sr.", "order": 3}
-    ]
+      {
+        "name": "Leonardo DiCaprio",
+        "character": "Frank Abagnale Jr.",
+        "order": 1
+      },
+      {
+        "name": "Tom Hanks",
+        "character": "Carl Hanratty",
+        "order": 2
+      },
+      {
+        "name": "Christopher Walken",
+        "character": "Frank Abagnale Sr.",
+        "order": 3
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/ctjEj2xM32OvBXCq8zAdK3ZrsAj.jpg"
   },
   {
     "id": "the-martian",
@@ -454,13 +1083,35 @@
     "tagline": "Bring him home.",
     "plot": "An astronaut becomes stranded on Mars and must draw upon his ingenuity to survive while his crew races to rescue him.",
     "director": "Ridley Scott",
-    "genres": ["Science Fiction", "Adventure", "Drama"],
-    "keywords": ["space", "survival", "mars", "science"],
+    "genres": [
+      "Science Fiction",
+      "Adventure",
+      "Drama"
+    ],
+    "keywords": [
+      "space",
+      "survival",
+      "mars",
+      "science"
+    ],
     "cast": [
-      {"name": "Matt Damon", "character": "Mark Watney", "order": 1},
-      {"name": "Jessica Chastain", "character": "Melissa Lewis", "order": 2},
-      {"name": "Kristen Wiig", "character": "Annie Montrose", "order": 3}
-    ]
+      {
+        "name": "Matt Damon",
+        "character": "Mark Watney",
+        "order": 1
+      },
+      {
+        "name": "Jessica Chastain",
+        "character": "Melissa Lewis",
+        "order": 2
+      },
+      {
+        "name": "Kristen Wiig",
+        "character": "Annie Montrose",
+        "order": 3
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/fASz8A0yFE3QB6LgGoOfwvFSseV.jpg"
   },
   {
     "id": "gladiator",
@@ -471,13 +1122,35 @@
     "tagline": "A hero will rise.",
     "plot": "A former Roman general sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.",
     "director": "Ridley Scott",
-    "genres": ["Action", "Adventure", "Drama"],
-    "keywords": ["revenge", "rome", "arena", "empire"],
+    "genres": [
+      "Action",
+      "Adventure",
+      "Drama"
+    ],
+    "keywords": [
+      "revenge",
+      "rome",
+      "arena",
+      "empire"
+    ],
     "cast": [
-      {"name": "Russell Crowe", "character": "Maximus", "order": 1},
-      {"name": "Joaquin Phoenix", "character": "Commodus", "order": 2},
-      {"name": "Connie Nielsen", "character": "Lucilla", "order": 3}
-    ]
+      {
+        "name": "Russell Crowe",
+        "character": "Maximus",
+        "order": 1
+      },
+      {
+        "name": "Joaquin Phoenix",
+        "character": "Commodus",
+        "order": 2
+      },
+      {
+        "name": "Connie Nielsen",
+        "character": "Lucilla",
+        "order": 3
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/wN2xWp1eIwCKOD0BHTcErTBv1Uq.jpg"
   },
   {
     "id": "joker",
@@ -488,13 +1161,35 @@
     "tagline": "Put on a happy face.",
     "plot": "A mentally troubled comedian embarks on a downward spiral that leads to the creation of an iconic villain in Gotham City.",
     "director": "Todd Phillips",
-    "genres": ["Crime", "Drama", "Thriller"],
-    "keywords": ["origin-story", "mental-illness", "society", "villain"],
+    "genres": [
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "keywords": [
+      "origin-story",
+      "mental-illness",
+      "society",
+      "villain"
+    ],
     "cast": [
-      {"name": "Joaquin Phoenix", "character": "Arthur Fleck", "order": 1},
-      {"name": "Robert De Niro", "character": "Murray Franklin", "order": 2},
-      {"name": "Zazie Beetz", "character": "Sophie Dumond", "order": 3}
-    ]
+      {
+        "name": "Joaquin Phoenix",
+        "character": "Arthur Fleck",
+        "order": 1
+      },
+      {
+        "name": "Robert De Niro",
+        "character": "Murray Franklin",
+        "order": 2
+      },
+      {
+        "name": "Zazie Beetz",
+        "character": "Sophie Dumond",
+        "order": 3
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg"
   },
   {
     "id": "the-batman",
@@ -505,14 +1200,40 @@
     "tagline": "Unmask the truth.",
     "plot": "When a sadistic serial killer begins murdering key political figures in Gotham, Batman is forced to investigate the city's hidden corruption.",
     "director": "Matt Reeves",
-    "genres": ["Crime", "Drama", "Action"],
-    "keywords": ["superhero", "detective", "serial-killer", "noir"],
+    "genres": [
+      "Crime",
+      "Drama",
+      "Action"
+    ],
+    "keywords": [
+      "superhero",
+      "detective",
+      "serial-killer",
+      "noir"
+    ],
     "cast": [
-      {"name": "Robert Pattinson", "character": "Bruce Wayne / Batman", "order": 1},
-      {"name": "Zoe Kravitz", "character": "Selina Kyle", "order": 2},
-      {"name": "Paul Dano", "character": "The Riddler", "order": 3},
-      {"name": "Colin Farrell", "character": "Oz / Penguin", "order": 4}
-    ]
+      {
+        "name": "Robert Pattinson",
+        "character": "Bruce Wayne / Batman",
+        "order": 1
+      },
+      {
+        "name": "Zoe Kravitz",
+        "character": "Selina Kyle",
+        "order": 2
+      },
+      {
+        "name": "Paul Dano",
+        "character": "The Riddler",
+        "order": 3
+      },
+      {
+        "name": "Colin Farrell",
+        "character": "Oz / Penguin",
+        "order": 4
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg"
   },
   {
     "id": "dune",
@@ -523,15 +1244,45 @@
     "tagline": "Beyond fear, destiny awaits.",
     "plot": "A noble family becomes embroiled in a war for control over the galaxy's most valuable asset while its heir grapples with his destiny.",
     "director": "Denis Villeneuve",
-    "genres": ["Science Fiction", "Adventure", "Drama"],
-    "keywords": ["desert", "chosen-one", "empire", "prophecy"],
+    "genres": [
+      "Science Fiction",
+      "Adventure",
+      "Drama"
+    ],
+    "keywords": [
+      "desert",
+      "chosen-one",
+      "empire",
+      "prophecy"
+    ],
     "cast": [
-      {"name": "Timothee Chalamet", "character": "Paul Atreides", "order": 1},
-      {"name": "Rebecca Ferguson", "character": "Lady Jessica", "order": 2},
-      {"name": "Oscar Isaac", "character": "Duke Leto Atreides", "order": 3},
-      {"name": "Zendaya", "character": "Chani", "order": 4},
-      {"name": "Josh Brolin", "character": "Gurney Halleck", "order": 5}
-    ]
+      {
+        "name": "Timothee Chalamet",
+        "character": "Paul Atreides",
+        "order": 1
+      },
+      {
+        "name": "Rebecca Ferguson",
+        "character": "Lady Jessica",
+        "order": 2
+      },
+      {
+        "name": "Oscar Isaac",
+        "character": "Duke Leto Atreides",
+        "order": 3
+      },
+      {
+        "name": "Zendaya",
+        "character": "Chani",
+        "order": 4
+      },
+      {
+        "name": "Josh Brolin",
+        "character": "Gurney Halleck",
+        "order": 5
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/v1tRXZ4JtD2Iv6fjkPvT4GiwslV.jpg"
   },
   {
     "id": "blade-runner-2049",
@@ -542,14 +1293,40 @@
     "tagline": "The key to the future is finally unearthed.",
     "plot": "A young blade runner discovers a long-buried secret that leads him to track down former blade runner Rick Deckard, missing for thirty years.",
     "director": "Denis Villeneuve",
-    "genres": ["Science Fiction", "Drama", "Mystery"],
-    "keywords": ["dystopia", "replicant", "noir", "identity"],
+    "genres": [
+      "Science Fiction",
+      "Drama",
+      "Mystery"
+    ],
+    "keywords": [
+      "dystopia",
+      "replicant",
+      "noir",
+      "identity"
+    ],
     "cast": [
-      {"name": "Ryan Gosling", "character": "K", "order": 1},
-      {"name": "Harrison Ford", "character": "Rick Deckard", "order": 2},
-      {"name": "Ana de Armas", "character": "Joi", "order": 3},
-      {"name": "Robin Wright", "character": "Lieutenant Joshi", "order": 4}
-    ]
+      {
+        "name": "Ryan Gosling",
+        "character": "K",
+        "order": 1
+      },
+      {
+        "name": "Harrison Ford",
+        "character": "Rick Deckard",
+        "order": 2
+      },
+      {
+        "name": "Ana de Armas",
+        "character": "Joi",
+        "order": 3
+      },
+      {
+        "name": "Robin Wright",
+        "character": "Lieutenant Joshi",
+        "order": 4
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/gajva2L0rPYkEWjzgFlBXCAVBE5.jpg"
   },
   {
     "id": "la-la-land",
@@ -560,13 +1337,35 @@
     "tagline": "Here's to the fools who dream.",
     "plot": "A jazz pianist and an aspiring actress fall in love while pursuing their dreams in Los Angeles.",
     "director": "Damien Chazelle",
-    "genres": ["Comedy", "Drama", "Romance"],
-    "keywords": ["musical", "dreams", "jazz", "bittersweet"],
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Romance"
+    ],
+    "keywords": [
+      "musical",
+      "dreams",
+      "jazz",
+      "bittersweet"
+    ],
     "cast": [
-      {"name": "Ryan Gosling", "character": "Sebastian", "order": 1},
-      {"name": "Emma Stone", "character": "Mia", "order": 2},
-      {"name": "John Legend", "character": "Keith", "order": 3}
-    ]
+      {
+        "name": "Ryan Gosling",
+        "character": "Sebastian",
+        "order": 1
+      },
+      {
+        "name": "Emma Stone",
+        "character": "Mia",
+        "order": 2
+      },
+      {
+        "name": "John Legend",
+        "character": "Keith",
+        "order": 3
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/uDO8zWDhfWwoFdKS4fzkUJt0Rf0.jpg"
   },
   {
     "id": "whiplash",
@@ -577,13 +1376,34 @@
     "tagline": "The road to greatness can take you to the edge.",
     "plot": "A promising young drummer enrolls at a competitive music conservatory where his ambitions are pushed to the brink by an abusive instructor.",
     "director": "Damien Chazelle",
-    "genres": ["Drama", "Music"],
-    "keywords": ["music", "ambition", "mentor", "obsession"],
+    "genres": [
+      "Drama",
+      "Music"
+    ],
+    "keywords": [
+      "music",
+      "ambition",
+      "mentor",
+      "obsession"
+    ],
     "cast": [
-      {"name": "Miles Teller", "character": "Andrew Neiman", "order": 1},
-      {"name": "J.K. Simmons", "character": "Terence Fletcher", "order": 2},
-      {"name": "Melissa Benoist", "character": "Nicole", "order": 3}
-    ]
+      {
+        "name": "Miles Teller",
+        "character": "Andrew Neiman",
+        "order": 1
+      },
+      {
+        "name": "J.K. Simmons",
+        "character": "Terence Fletcher",
+        "order": 2
+      },
+      {
+        "name": "Melissa Benoist",
+        "character": "Nicole",
+        "order": 3
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/7fn624j5lj3xTme2SgiLCeuedmO.jpg"
   },
   {
     "id": "the-grand-budapest-hotel",
@@ -594,14 +1414,39 @@
     "tagline": "A perfect getaway.",
     "plot": "A legendary concierge and his protege become embroiled in the theft of a priceless painting and a battle over an enormous family fortune.",
     "director": "Wes Anderson",
-    "genres": ["Comedy", "Drama"],
-    "keywords": ["caper", "whimsical", "europe", "friendship"],
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "keywords": [
+      "caper",
+      "whimsical",
+      "europe",
+      "friendship"
+    ],
     "cast": [
-      {"name": "Ralph Fiennes", "character": "M. Gustave", "order": 1},
-      {"name": "Tony Revolori", "character": "Zero", "order": 2},
-      {"name": "Adrien Brody", "character": "Dmitri", "order": 3},
-      {"name": "Saoirse Ronan", "character": "Agatha", "order": 4}
-    ]
+      {
+        "name": "Ralph Fiennes",
+        "character": "M. Gustave",
+        "order": 1
+      },
+      {
+        "name": "Tony Revolori",
+        "character": "Zero",
+        "order": 2
+      },
+      {
+        "name": "Adrien Brody",
+        "character": "Dmitri",
+        "order": 3
+      },
+      {
+        "name": "Saoirse Ronan",
+        "character": "Agatha",
+        "order": 4
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/eWdyYQreja6JGCzqHWXpWHDrrPo.jpg"
   },
   {
     "id": "little-women",
@@ -612,14 +1457,39 @@
     "tagline": "Own your story.",
     "plot": "The March sisters come of age in the aftermath of the Civil War, each pursuing love and independence on her own terms.",
     "director": "Greta Gerwig",
-    "genres": ["Drama", "Romance"],
-    "keywords": ["period-drama", "family", "coming-of-age", "sisters"],
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "keywords": [
+      "period-drama",
+      "family",
+      "coming-of-age",
+      "sisters"
+    ],
     "cast": [
-      {"name": "Saoirse Ronan", "character": "Jo March", "order": 1},
-      {"name": "Emma Watson", "character": "Meg March", "order": 2},
-      {"name": "Florence Pugh", "character": "Amy March", "order": 3},
-      {"name": "Timothee Chalamet", "character": "Laurie", "order": 4}
-    ]
+      {
+        "name": "Saoirse Ronan",
+        "character": "Jo March",
+        "order": 1
+      },
+      {
+        "name": "Emma Watson",
+        "character": "Meg March",
+        "order": 2
+      },
+      {
+        "name": "Florence Pugh",
+        "character": "Amy March",
+        "order": 3
+      },
+      {
+        "name": "Timothee Chalamet",
+        "character": "Laurie",
+        "order": 4
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/yn5ihODtZ7ofn8pDYfxCmxh8AXI.jpg"
   },
   {
     "id": "barbie",
@@ -630,13 +1500,35 @@
     "tagline": "She's everything. He's just Ken.",
     "plot": "Barbie suffers a crisis that leads her to question her world and her existence, venturing into the real world to find answers.",
     "director": "Greta Gerwig",
-    "genres": ["Comedy", "Adventure", "Fantasy"],
-    "keywords": ["satire", "identity", "feminism", "toys"],
+    "genres": [
+      "Comedy",
+      "Adventure",
+      "Fantasy"
+    ],
+    "keywords": [
+      "satire",
+      "identity",
+      "feminism",
+      "toys"
+    ],
     "cast": [
-      {"name": "Margot Robbie", "character": "Barbie", "order": 1},
-      {"name": "Ryan Gosling", "character": "Ken", "order": 2},
-      {"name": "America Ferrera", "character": "Gloria", "order": 3}
-    ]
+      {
+        "name": "Margot Robbie",
+        "character": "Barbie",
+        "order": 1
+      },
+      {
+        "name": "Ryan Gosling",
+        "character": "Ken",
+        "order": 2
+      },
+      {
+        "name": "America Ferrera",
+        "character": "Gloria",
+        "order": 3
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg"
   },
   {
     "id": "parasite",
@@ -647,13 +1539,35 @@
     "tagline": "Act like you own the place.",
     "plot": "A poor family schemes to become employed by a wealthy household by infiltrating it and posing as unrelated, highly qualified individuals.",
     "director": "Bong Joon-ho",
-    "genres": ["Comedy", "Drama", "Thriller"],
-    "keywords": ["class-divide", "satire", "twist", "korea"],
+    "genres": [
+      "Comedy",
+      "Drama",
+      "Thriller"
+    ],
+    "keywords": [
+      "class-divide",
+      "satire",
+      "twist",
+      "korea"
+    ],
     "cast": [
-      {"name": "Song Kang-ho", "character": "Ki-taek", "order": 1},
-      {"name": "Lee Sun-kyun", "character": "Park Dong-ik", "order": 2},
-      {"name": "Cho Yeo-jeong", "character": "Choi Yeon-gyo", "order": 3}
-    ]
+      {
+        "name": "Song Kang-ho",
+        "character": "Ki-taek",
+        "order": 1
+      },
+      {
+        "name": "Lee Sun-kyun",
+        "character": "Park Dong-ik",
+        "order": 2
+      },
+      {
+        "name": "Cho Yeo-jeong",
+        "character": "Choi Yeon-gyo",
+        "order": 3
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg"
   },
   {
     "id": "everything-everywhere-all-at-once",
@@ -664,14 +1578,40 @@
     "tagline": "The universe is so much bigger than you realize.",
     "plot": "An aging Chinese immigrant is swept up in an insane adventure in which she alone can save existence by exploring other universes.",
     "director": "Daniel Kwan",
-    "genres": ["Science Fiction", "Comedy", "Adventure"],
-    "keywords": ["multiverse", "family", "identity", "absurdist"],
+    "genres": [
+      "Science Fiction",
+      "Comedy",
+      "Adventure"
+    ],
+    "keywords": [
+      "multiverse",
+      "family",
+      "identity",
+      "absurdist"
+    ],
     "cast": [
-      {"name": "Michelle Yeoh", "character": "Evelyn Wang", "order": 1},
-      {"name": "Ke Huy Quan", "character": "Waymond Wang", "order": 2},
-      {"name": "Stephanie Hsu", "character": "Joy Wang", "order": 3},
-      {"name": "Jamie Lee Curtis", "character": "Deirdre", "order": 4}
-    ]
+      {
+        "name": "Michelle Yeoh",
+        "character": "Evelyn Wang",
+        "order": 1
+      },
+      {
+        "name": "Ke Huy Quan",
+        "character": "Waymond Wang",
+        "order": 2
+      },
+      {
+        "name": "Stephanie Hsu",
+        "character": "Joy Wang",
+        "order": 3
+      },
+      {
+        "name": "Jamie Lee Curtis",
+        "character": "Deirdre",
+        "order": 4
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/u68AjlvlutfEIcpmbYpKcdi09ut.jpg"
   },
   {
     "id": "knives-out",
@@ -682,14 +1622,40 @@
     "tagline": "Everyone is a suspect.",
     "plot": "A detective investigates the death of the patriarch of an eccentric, combative family at his estate.",
     "director": "Rian Johnson",
-    "genres": ["Comedy", "Crime", "Mystery"],
-    "keywords": ["whodunit", "family", "wealth", "detective"],
+    "genres": [
+      "Comedy",
+      "Crime",
+      "Mystery"
+    ],
+    "keywords": [
+      "whodunit",
+      "family",
+      "wealth",
+      "detective"
+    ],
     "cast": [
-      {"name": "Daniel Craig", "character": "Benoit Blanc", "order": 1},
-      {"name": "Ana de Armas", "character": "Marta Cabrera", "order": 2},
-      {"name": "Chris Evans", "character": "Ransom Drysdale", "order": 3},
-      {"name": "Jamie Lee Curtis", "character": "Linda Drysdale", "order": 4}
-    ]
+      {
+        "name": "Daniel Craig",
+        "character": "Benoit Blanc",
+        "order": 1
+      },
+      {
+        "name": "Ana de Armas",
+        "character": "Marta Cabrera",
+        "order": 2
+      },
+      {
+        "name": "Chris Evans",
+        "character": "Ransom Drysdale",
+        "order": 3
+      },
+      {
+        "name": "Jamie Lee Curtis",
+        "character": "Linda Drysdale",
+        "order": 4
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/pThyQovXQrw2m0s9x82twj48Jq4.jpg"
   },
   {
     "id": "no-time-to-die",
@@ -700,14 +1666,40 @@
     "tagline": "The mission that changes everything.",
     "plot": "James Bond is drawn out of retirement when an old friend from the CIA turns up asking for help, leading to a showdown with a dangerous new villain.",
     "director": "Cary Joji Fukunaga",
-    "genres": ["Action", "Adventure", "Thriller"],
-    "keywords": ["spy", "espionage", "007", "sacrifice"],
+    "genres": [
+      "Action",
+      "Adventure",
+      "Thriller"
+    ],
+    "keywords": [
+      "spy",
+      "espionage",
+      "007",
+      "sacrifice"
+    ],
     "cast": [
-      {"name": "Daniel Craig", "character": "James Bond", "order": 1},
-      {"name": "Rami Malek", "character": "Safin", "order": 2},
-      {"name": "Lea Seydoux", "character": "Madeleine Swann", "order": 3},
-      {"name": "Ana de Armas", "character": "Paloma", "order": 4}
-    ]
+      {
+        "name": "Daniel Craig",
+        "character": "James Bond",
+        "order": 1
+      },
+      {
+        "name": "Rami Malek",
+        "character": "Safin",
+        "order": 2
+      },
+      {
+        "name": "Lea Seydoux",
+        "character": "Madeleine Swann",
+        "order": 3
+      },
+      {
+        "name": "Ana de Armas",
+        "character": "Paloma",
+        "order": 4
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/iUgygt3fscRoKWCV1d0C7FbM9TP.jpg"
   },
   {
     "id": "bohemian-rhapsody",
@@ -718,13 +1710,35 @@
     "tagline": "Fearless lives forever.",
     "plot": "The story of the legendary British rock band Queen and lead singer Freddie Mercury, leading up to their iconic Live Aid performance.",
     "director": "Bryan Singer",
-    "genres": ["Biography", "Drama", "Music"],
-    "keywords": ["music", "biography", "queen", "true-story"],
+    "genres": [
+      "Biography",
+      "Drama",
+      "Music"
+    ],
+    "keywords": [
+      "music",
+      "biography",
+      "queen",
+      "true-story"
+    ],
     "cast": [
-      {"name": "Rami Malek", "character": "Freddie Mercury", "order": 1},
-      {"name": "Lucy Boynton", "character": "Mary Austin", "order": 2},
-      {"name": "Gwilym Lee", "character": "Brian May", "order": 3}
-    ]
+      {
+        "name": "Rami Malek",
+        "character": "Freddie Mercury",
+        "order": 1
+      },
+      {
+        "name": "Lucy Boynton",
+        "character": "Mary Austin",
+        "order": 2
+      },
+      {
+        "name": "Gwilym Lee",
+        "character": "Brian May",
+        "order": 3
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/lHu1wtNaczFPGFDTrjCSzeLPTKN.jpg"
   },
   {
     "id": "dunkirk",
@@ -735,14 +1749,41 @@
     "tagline": "Survival is victory.",
     "plot": "Allied soldiers from Belgium, the British Empire, and France are surrounded by the German Army and evacuated during a fierce battle in World War II.",
     "director": "Christopher Nolan",
-    "genres": ["Action", "Drama", "History", "War"],
-    "keywords": ["world-war-two", "survival", "evacuation", "tension"],
+    "genres": [
+      "Action",
+      "Drama",
+      "History",
+      "War"
+    ],
+    "keywords": [
+      "world-war-two",
+      "survival",
+      "evacuation",
+      "tension"
+    ],
     "cast": [
-      {"name": "Fionn Whitehead", "character": "Tommy", "order": 1},
-      {"name": "Tom Hardy", "character": "Farrier", "order": 2},
-      {"name": "Cillian Murphy", "character": "Shivering Soldier", "order": 3},
-      {"name": "Harry Styles", "character": "Alex", "order": 4}
-    ]
+      {
+        "name": "Fionn Whitehead",
+        "character": "Tommy",
+        "order": 1
+      },
+      {
+        "name": "Tom Hardy",
+        "character": "Farrier",
+        "order": 2
+      },
+      {
+        "name": "Cillian Murphy",
+        "character": "Shivering Soldier",
+        "order": 3
+      },
+      {
+        "name": "Harry Styles",
+        "character": "Alex",
+        "order": 4
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/b4Oe15CGLL61Ped0RAS9JpqdmCt.jpg"
   },
   {
     "id": "midsommar",
@@ -753,13 +1794,35 @@
     "tagline": "Let the festivities begin.",
     "plot": "A grieving couple travels to a remote Swedish village for a midsummer festival that soon turns into a violent and bizarre competition.",
     "director": "Ari Aster",
-    "genres": ["Drama", "Horror", "Mystery"],
-    "keywords": ["folk-horror", "cult", "grief", "sweden"],
+    "genres": [
+      "Drama",
+      "Horror",
+      "Mystery"
+    ],
+    "keywords": [
+      "folk-horror",
+      "cult",
+      "grief",
+      "sweden"
+    ],
     "cast": [
-      {"name": "Florence Pugh", "character": "Dani", "order": 1},
-      {"name": "Jack Reynor", "character": "Christian", "order": 2},
-      {"name": "Will Poulter", "character": "Mark", "order": 3}
-    ]
+      {
+        "name": "Florence Pugh",
+        "character": "Dani",
+        "order": 1
+      },
+      {
+        "name": "Jack Reynor",
+        "character": "Christian",
+        "order": 2
+      },
+      {
+        "name": "Will Poulter",
+        "character": "Mark",
+        "order": 3
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/7LEI8ulZzO5gy9Ww2NVCrKmHeDZ.jpg"
   },
   {
     "id": "arrival",
@@ -770,12 +1833,34 @@
     "tagline": "Why are they here?",
     "plot": "A linguist is recruited by the military to communicate with alien lifeforms after twelve mysterious spacecraft appear around the world.",
     "director": "Denis Villeneuve",
-    "genres": ["Science Fiction", "Drama", "Mystery"],
-    "keywords": ["aliens", "language", "time", "first-contact"],
+    "genres": [
+      "Science Fiction",
+      "Drama",
+      "Mystery"
+    ],
+    "keywords": [
+      "aliens",
+      "language",
+      "time",
+      "first-contact"
+    ],
     "cast": [
-      {"name": "Amy Adams", "character": "Louise Banks", "order": 1},
-      {"name": "Jeremy Renner", "character": "Ian Donnelly", "order": 2},
-      {"name": "Forest Whitaker", "character": "Colonel Weber", "order": 3}
-    ]
+      {
+        "name": "Amy Adams",
+        "character": "Louise Banks",
+        "order": 1
+      },
+      {
+        "name": "Jeremy Renner",
+        "character": "Ian Donnelly",
+        "order": 2
+      },
+      {
+        "name": "Forest Whitaker",
+        "character": "Colonel Weber",
+        "order": 3
+      }
+    ],
+    "poster_url": "https://image.tmdb.org/t/p/w500/pEzNVQfdzYDzVK0XqxERIw2x2se.jpg"
   }
 ]

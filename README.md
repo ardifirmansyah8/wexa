@@ -206,6 +206,17 @@ python smoke_test.py         # optional: run every query against your instance
 
 The seed is **idempotent** (`MERGE`-based) — safe to re-run.
 
+**Optional — real poster images.** Movie cards show real posters when a
+`poster_url` is present and fall back to a generated gradient otherwise. To
+populate posters from [TMDB](https://www.themoviedb.org) (free API key), run the
+enrichment script before seeding:
+
+```bash
+export TMDB_API_KEY=<your-tmdb-v3-key>   # themoviedb.org/settings/api
+python -m seed.enrich_posters            # writes poster_url into data/movies.json
+python -m seed.seed                      # re-seed to push them into the graph
+```
+
 ### 4. Run the backend
 
 ```bash
@@ -299,3 +310,7 @@ cognodb-movie-graph/
 
 Built as a take-home assignment demonstrating graph data modelling on CognoDB
 (openCypher over Bolt, via the official Neo4j driver).
+
+Poster images and movie metadata are provided by
+[The Movie Database (TMDB)](https://www.themoviedb.org). This product uses the
+TMDB API but is not endorsed or certified by TMDB.

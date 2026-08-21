@@ -18,14 +18,21 @@ from __future__ import annotations
 
 import json
 import os
+import ssl
 import sys
 import urllib.parse
 import urllib.request
 from pathlib import Path
 
+import certifi
+
 DATA_FILE = Path(__file__).with_name("data") / "movies.json"
 SEARCH_URL = "https://api.themoviedb.org/3/search/movie"
 IMAGE_BASE = "https://image.tmdb.org/t/p/w500"
+
+# Verify TLS against certifi's CA bundle — some Python builds (macOS python.org)
+# ship without a usable system CA store, which makes HTTPS verification fail.
+_SSL_CTX = ssl.create_default_context(cafile=certifi.where())
 
 
 def tmdb_search(title: str, year: int, api_key: str) -> str | None:
@@ -34,7 +41,7 @@ def tmdb_search(title: str, year: int, api_key: str) -> str | None:
     )
     req = urllib.request.Request(f"{SEARCH_URL}?{params}", headers={"Accept": "application/json"})
     try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
+        with urllib.request.urlopen(req, timeout=15, context=_SSL_CTX) as resp:
             data = json.load(resp)
     except Exception as exc:  # noqa: BLE001 - report and continue
         print(f"  ! request failed for {title!r}: {exc}")

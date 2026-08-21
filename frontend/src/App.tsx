@@ -78,6 +78,13 @@ export default function App() {
             CognoDB
           </a>{" "}
           (openCypher over Bolt) · a graph-native recommendation demo
+          <div style={{ marginTop: 8, fontSize: 12 }}>
+            Poster images and metadata provided by{" "}
+            <a href="https://www.themoviedb.org" target="_blank" rel="noreferrer">
+              The Movie Database (TMDB)
+            </a>
+            . This product uses the TMDB API but is not endorsed or certified by TMDB.
+          </div>
         </div>
       </footer>
     </>
