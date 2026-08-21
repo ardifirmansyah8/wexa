@@ -8,6 +8,9 @@ database ([CognoDB](https://console.cognodb.com), openCypher over Bolt).
 Browse films → open one → get recommendations that are literally graph traversals → trace the
 "six degrees" between any two actors → get picks tuned to a viewer's taste.
 
+> **▶️ Live demo:** _add your hosted URL here after deploying_ · **Deploy guide:**
+> [`docs/DEPLOY.md`](docs/DEPLOY.md) · **Walkthrough video:** below
+
 ![MovieGraph walkthrough](docs/demo/demo.gif)
 
 <sub>A quick walkthrough (silent). Full-quality MP4: [`docs/demo/demo.mp4`](docs/demo/demo.mp4).</sub>
