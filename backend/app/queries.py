@@ -101,30 +101,36 @@ def more_like_this(movie_id: str, limit: int) -> list[dict[str, Any]]:
     manual GROUP BY to reproduce the weighted overlap the graph expresses
     directly as a set of patterns.
     """
+    # Gather neighbours through each kind of shared attribute into its own list
+    # (each `collect` collapses the row fan-out back to a single row, so the
+    # OPTIONAL MATCHes chain cleanly), then build one weighted, tagged list with
+    # comprehensions and aggregate per neighbour. `collect` skips nulls, so a
+    # movie with no shared keywords simply contributes an empty list.
+    #
+    # This deliberately avoids a `UNION` inside a correlated `CALL {}` subquery:
+    # CognoDB evaluates that to zero rows. The scoring is unchanged — a film
+    # sharing three genres appears three times in `gs` and so scores 3x.
     cypher = """
     MATCH (m:Movie {id: $id})
-
-    // Collect neighbours reachable through each kind of shared attribute,
-    // tagging every hit with a weight for that relationship type.
-    CALL {
-        WITH m
-        MATCH (m)-[:IN_GENRE]->(:Genre)<-[:IN_GENRE]-(rec:Movie)
-        RETURN rec, 2 AS w, 'genre' AS via
-      UNION
-        WITH m
-        MATCH (m)-[:HAS_KEYWORD]->(:Keyword)<-[:HAS_KEYWORD]-(rec:Movie)
-        RETURN rec, 4 AS w, 'keyword' AS via
-      UNION
-        WITH m
-        MATCH (m)<-[:ACTED_IN]-(:Person)-[:ACTED_IN]->(rec:Movie)
-        RETURN rec, 3 AS w, 'cast' AS via
-      UNION
-        WITH m
-        MATCH (m)<-[:DIRECTED]-(:Person)-[:DIRECTED]->(rec:Movie)
-        RETURN rec, 5 AS w, 'director' AS via
-    }
-    WITH m, rec, sum(w) AS score, collect(DISTINCT via) AS reasons
-    WHERE rec.id <> m.id
+    OPTIONAL MATCH (m)-[:IN_GENRE]->(:Genre)<-[:IN_GENRE]-(a:Movie)
+    WHERE a <> m
+    WITH m, collect(a) AS gs
+    OPTIONAL MATCH (m)-[:HAS_KEYWORD]->(:Keyword)<-[:HAS_KEYWORD]-(b:Movie)
+    WHERE b <> m
+    WITH m, gs, collect(b) AS ks
+    OPTIONAL MATCH (m)<-[:ACTED_IN]-(:Person)-[:ACTED_IN]->(c:Movie)
+    WHERE c <> m
+    WITH m, gs, ks, collect(c) AS cs
+    OPTIONAL MATCH (m)<-[:DIRECTED]-(:Person)-[:DIRECTED]->(d:Movie)
+    WHERE d <> m
+    WITH gs, ks, cs, collect(d) AS ds
+    WITH [x IN gs | {rec: x, w: 2, via: 'genre'}]
+       + [x IN ks | {rec: x, w: 4, via: 'keyword'}]
+       + [x IN cs | {rec: x, w: 3, via: 'cast'}]
+       + [x IN ds | {rec: x, w: 5, via: 'director'}] AS acc
+    UNWIND acc AS hit
+    WITH hit.rec AS rec, hit.w AS w, hit.via AS via
+    WITH rec, sum(w) AS score, collect(DISTINCT via) AS reasons
     RETURN rec.id AS id, rec.title AS title, rec.year AS year,
            rec.rating AS rating, rec.tagline AS tagline,
            score, reasons
@@ -148,7 +154,7 @@ def fans_also_liked(movie_id: str, limit: int) -> list[dict[str, Any]]:
     WITH rec, count(DISTINCT u) AS fans, avg(r2.stars) AS avg_stars
     RETURN rec.id AS id, rec.title AS title, rec.year AS year,
            rec.rating AS rating, rec.tagline AS tagline,
-           fans, round(avg_stars, 2) AS avg_stars
+           fans, round(avg_stars * 100.0) / 100.0 AS avg_stars
     ORDER BY fans DESC, avg_stars DESC
     LIMIT $limit
     """
@@ -174,7 +180,7 @@ def recommend_for_user(user_id: str, limit: int) -> list[dict[str, Any]]:
     WITH rec, count(DISTINCT peer) AS peers, avg(r3.stars) AS avg_stars
     RETURN rec.id AS id, rec.title AS title, rec.year AS year,
            rec.rating AS rating, rec.tagline AS tagline,
-           peers, round(avg_stars, 2) AS avg_stars
+           peers, round(avg_stars * 100.0) / 100.0 AS avg_stars
     ORDER BY peers DESC, avg_stars DESC
     LIMIT $limit
     """

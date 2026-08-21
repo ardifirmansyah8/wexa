@@ -18,6 +18,14 @@ from app.db import DatabaseUnavailable, close_driver, verify_connectivity
 GREEN, RED, DIM, RESET = "\033[32m", "\033[31m", "\033[2m", "\033[0m"
 
 
+def nonempty(rows: list) -> list:
+    """Assert a query that should return matches actually did (a 0-row result
+    for a well-connected seed movie means the query is silently broken)."""
+    if not rows:
+        raise AssertionError("expected rows, got none")
+    return rows
+
+
 def check(name: str, fn) -> bool:
     try:
         result = fn()
@@ -48,8 +56,8 @@ def main() -> None:
     ok.append(check("search movies ('dark')", lambda: queries.list_movies("dark", None, 10, 0)))
     ok.append(check("filter by genre ('Drama')", lambda: queries.list_movies(None, "Drama", 10, 0)))
     ok.append(check("get_movie(inception)", lambda: queries.get_movie(mid)))
-    ok.append(check("more_like_this [CALL{} subquery]", lambda: queries.more_like_this(mid, 8)))
-    ok.append(check("fans_also_liked [collaborative]", lambda: queries.fans_also_liked(mid, 8)))
+    ok.append(check("more_like_this [multi-hop content]", lambda: nonempty(queries.more_like_this(mid, 8))))
+    ok.append(check("fans_also_liked [collaborative]", lambda: nonempty(queries.fans_also_liked(mid, 8))))
     ok.append(check("list_users", lambda: queries.list_users(12)))
     users = queries.list_users(1)
     uid = users[0]["id"] if users else "u001"

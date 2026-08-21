@@ -9,15 +9,25 @@ responses.
 from __future__ import annotations
 
 import logging
+import os
 from contextlib import contextmanager
 from typing import Any, Iterator
 
+import certifi
 from neo4j import Driver, GraphDatabase
 from neo4j.exceptions import AuthError, Neo4jError, ServiceUnavailable
 
 from .config import settings
 
 logger = logging.getLogger("moviegraph.db")
+
+# The `bolt+s://` scheme verifies the server certificate against the system CA
+# store via ssl.create_default_context(). Some Python installs (notably the
+# macOS python.org build) ship without a usable CA bundle, which makes even a
+# valid Let's Encrypt certificate fail to verify. Point the SSL layer at
+# certifi's bundle so TLS verification works consistently across dev machines
+# and deploy hosts. We only set it if the operator hasn't chosen their own.
+os.environ.setdefault("SSL_CERT_FILE", certifi.where())
 
 
 class DatabaseUnavailable(RuntimeError):
