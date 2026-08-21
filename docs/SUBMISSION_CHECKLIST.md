@@ -36,16 +36,21 @@ Tracks every requirement in the brief against what's done. `[x]` = complete, `[ 
 ## B. Your actions to submit
 
 - [x] **Push to GitHub** — https://github.com/ardifirmansyah8/wexa (`.env` confirmed not tracked)
-- [ ] **Deploy the backend** (Render) — follow [`DEPLOY.md`](DEPLOY.md) §1
-- [ ] **Deploy the frontend** (Vercel) — [`DEPLOY.md`](DEPLOY.md) §2
-- [ ] **Lock down CORS** to the real frontend URL — [`DEPLOY.md`](DEPLOY.md) §3
-- [ ] **Smoke-test the hosted demo** — click Browse → movie → Six Degrees → For You
+- [x] **Deploy the backend** (Vercel · Python serverless) — https://moviegraph-api.vercel.app
+- [x] **Deploy the frontend** (Vercel · static) — https://moviegraph.vercel.app
+- [x] **Lock down CORS** to the frontend origin — verified (other origins rejected)
+- [x] **Smoke-test the hosted demo** — API + data + CORS verified end-to-end
 - [x] **Screen recording** — walkthrough GIF + MP4 in `docs/demo/`, embedded in README
       (optionally re-record with your narration for a more personal submission)
-- [ ] **Add the live demo link** to the top of the README
+- [x] **Add the live demo link** to the top of the README
 - [ ] If the repo is **private**, add Wexa as a collaborator (they request access in the brief)
 - [ ] **Email hr@wexa.ai** — subject: `CognoDB Assignment 2 – <Your Name>`, include repo URL + demo link
 - [ ] Keep the CognoDB instance **running** until you hear back (they may test against live data)
+
+### Tests (bonus — not required by the brief)
+- [x] Backend unit tests (pytest, offline) — 18 passing
+- [x] Frontend unit tests (vitest) — 6 passing
+- [x] Live integration smoke test (`smoke_test.py`) — 14 checks
 
 ## C. After the review
 - [ ] Rotate the CognoDB password (it was shared in chat and is in the local `.env`)
