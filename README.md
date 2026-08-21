@@ -1,316 +1,148 @@
 # 🎬 MovieGraph
 
-**A graph-native movie recommendation explorer, backed by [CognoDB](https://console.cognodb.com).**
+A little movie explorer that recommends films the way your brain actually does —
+by connection. *"What's this like?"*, *"who links these two actors?"*, *"what did people with
+my taste love?"* Those are questions about a network, so the whole thing runs on a graph
+database ([CognoDB](https://console.cognodb.com), openCypher over Bolt).
 
-MovieGraph lets anyone explore films the way our intuition actually works — through
-_connections_. Not "show me action movies sorted by year," but "why should I watch this,
-who connects these two actors, and what did people with my taste love?" Those questions are
-about **paths and neighbourhoods in a network**, which is exactly what a graph database is
-built to answer.
+Browse films → open one → get recommendations that are literally graph traversals → trace the
+"six degrees" between any two actors → get picks tuned to a viewer's taste.
 
-> Browse the catalogue → open a film → get recommendations that are literally traversals of
-> the graph → trace the "six degrees" chain between any two actors → get personalised picks
-> from viewers who share your taste.
-
----
-
-## Table of contents
-
-- [Why a graph database?](#why-a-graph-database)
-- [The data model](#the-data-model)
-- [The queries that earn the graph](#the-queries-that-earn-the-graph)
-- [Architecture](#architecture)
-- [Setup & run](#setup--run)
-  - [1. Create a CognoDB instance](#1-create-a-cognodb-instance)
-  - [2. Configure secrets](#2-configure-secrets)
-  - [3. Seed the graph](#3-seed-the-graph)
-  - [4. Run the backend](#4-run-the-backend)
-  - [5. Run the frontend](#5-run-the-frontend)
-- [Deployment](#deployment)
-- [Screenshots](#screenshots)
-- [Project structure](#project-structure)
-
----
+![Browse](docs/screenshots/browse.png)
 
 ## Why a graph database?
 
-The core features of this app are all **relationship questions**, and each one gets harder in
-a relational schema in a way that maps directly to how graphs work:
+Everything interesting here is a *relationship* question, and each one is a natural fit for a
+graph and an awkward one for SQL:
 
-| Feature | As a graph query | As SQL |
-| --- | --- | --- |
-| **More like this** | One traversal out of a movie through shared genres, keywords, cast and director, summing a weight per hop. | Several `UNION`ed self-joins across `movie_genre`, `movie_keyword`, `role`, plus a manual `GROUP BY` to re-aggregate the weighted overlap. |
-| **Fans also liked** | `Movie <-[:RATED]- User -[:RATED]-> Movie`, one pattern. | A self-join of a multi-million-row ratings table against itself, filtered on both ends — the classic expensive collaborative-filtering join. |
-| **Six degrees of separation** | `shortestPath((a)-[:ACTED_IN*]-(b))` — a single built-in. | A recursive CTE of **unbounded** join depth. There is no fixed number of joins that answers "how far apart are these two actors," because you don't know the answer's length in advance. |
-| **Recommend for you** | Hop from a user to like-minded peers to the films they loved. | A three-way self-join across users, ratings and movies with de-duplication against the user's own history. |
+- **More like this** — one hop out through shared genres, keywords, cast and director, scored by
+  overlap. In SQL that's several UNION'd self-joins across junction tables and a manual re-aggregate.
+- **Fans also liked** — `Movie ← RATED ← User → RATED → Movie`, one line. In SQL it's the ratings
+  table joined against itself, the classic expensive collaborative-filtering join.
+- **Six degrees** — `shortestPath` between two actors. There's no fixed SQL for this: you don't
+  know how many joins you need until you've found the answer. It's a recursive CTE of unknown depth;
+  in Cypher it's a built-in.
 
-The through-line: **relational databases store relationships as foreign keys and re-discover
-them at query time with joins.** The cost of a join grows with the data on both sides, and
-_variable-length_ relationships (six degrees) can't be expressed with a fixed query at all. A
-graph database stores each relationship as a first-class, directly-traversable pointer, so
-"walk from here to there" is O(the path), not O(the tables). When the interesting questions
-are about the shape of the network, that difference is the whole ballgame.
+The point: relational stores keep relationships as foreign keys and rebuild them with joins at
+query time. A graph stores each relationship as a pointer you just follow. When your questions are
+about the *shape* of the network, that's the whole game. (The seed data is deliberately dense —
+the Nolan / DiCaprio / Scorsese / Tarantino circles overlap a lot — so these traversals surface
+real, non-obvious results.)
 
-Our dataset is intentionally **densely connected** (actors and directors recur across films —
-the Nolan/DiCaprio/Scorsese/Tarantino clusters overlap heavily) so these traversals return
-genuinely useful, non-obvious results rather than trivial one-hop matches.
-
----
-
-## The data model
+## The graph
 
 ```mermaid
 graph LR
-  P((Person)) -->|ACTED_IN<br/>{character, order}| M((Movie))
+  P((Person)) -->|ACTED_IN · character, order| M((Movie))
   P -->|DIRECTED| M
   M -->|IN_GENRE| G((Genre))
   M -->|HAS_KEYWORD| K((Keyword))
-  U((User)) -->|RATED<br/>{stars}| M
+  U((User)) -->|RATED · stars| M
 ```
 
-**Nodes**
-
-| Label | Key properties |
+| Node | Notable properties |
 | --- | --- |
-| `Movie` | `id`, `title`, `year`, `runtime`, `rating`, `tagline`, `plot` |
-| `Person` | `name` (actors and directors share the label — many people are both) |
-| `Genre` | `name` |
-| `Keyword` | `name` (theme tags: `heist`, `survival`, `multiverse`, …) |
-| `User` | `id`, `name`, `taste` (a taste-profile label used to cluster ratings) |
+| `Movie` | `title`, `year`, `runtime`, `rating`, `tagline`, `plot`, `poster_url` |
+| `Person` | `name` — actors and directors share the label; plenty are both |
+| `Genre` / `Keyword` | `name` |
+| `User` | `name`, `taste` (a profile that clusters their ratings) |
 
-**Relationships**
+Relationships: `ACTED_IN {character, order}`, `DIRECTED`, `IN_GENRE`, `HAS_KEYWORD`,
+`RATED {stars}`. Uniqueness constraints double as indexes; the seed uses `MERGE`, so re-running
+never duplicates anything.
 
-| Type | From → To | Properties |
-| --- | --- | --- |
-| `ACTED_IN` | `Person` → `Movie` | `character`, `order` |
-| `DIRECTED` | `Person` → `Movie` | — |
-| `IN_GENRE` | `Movie` → `Genre` | — |
-| `HAS_KEYWORD` | `Movie` → `Keyword` | — |
-| `RATED` | `User` → `Movie` | `stars` (1–5) |
+## The queries
 
-Uniqueness constraints on `Movie.id`, `Person.name`, `Genre.name`, `Keyword.name` and
-`User.id` keep the graph clean and double as lookup indexes. The seed uses `MERGE`
-throughout, so re-running never duplicates nodes or edges.
+All Cypher lives in [`backend/app/queries.py`](backend/app/queries.py) and is **fully
+parameterised** — values always go through the driver, never string-concatenated. The four that
+carry the app:
 
----
+1. **`more_like_this`** — the 2-hop weighted content recommender. The UI shows *why* each pick
+   surfaced (genre / shared cast / director tags).
+2. **`fans_also_liked`** — collaborative filtering over the ratings graph.
+3. **`shortest_path_between_actors`** — the Six Degrees traversal.
+4. **`recommend_for_user`** — personalised picks via like-minded viewers.
 
-## The queries that earn the graph
+Run [`backend/smoke_test.py`](backend/smoke_test.py) after seeding to fire every query at your
+live instance and confirm the data layer is healthy (14 checks).
 
-All Cypher lives in [`backend/app/queries.py`](backend/app/queries.py), fully parameterised —
-**no string-concatenated Cypher anywhere**; every value is passed through the driver's
-parameter map.
-
-### 1. Multi-hop content recommendation — _More like this_
-
-A 2-hop traversal that fans out from a movie through four kinds of shared attribute, weighting
-each and summing per neighbour:
-
-```cypher
-MATCH (m:Movie {id: $id})
-CALL {
-    WITH m MATCH (m)-[:IN_GENRE]->(:Genre)<-[:IN_GENRE]-(rec:Movie)     RETURN rec, 2 AS w, 'genre' AS via
-  UNION
-    WITH m MATCH (m)-[:HAS_KEYWORD]->(:Keyword)<-[:HAS_KEYWORD]-(rec:Movie) RETURN rec, 4 AS w, 'keyword' AS via
-  UNION
-    WITH m MATCH (m)<-[:ACTED_IN]-(:Person)-[:ACTED_IN]->(rec:Movie)    RETURN rec, 3 AS w, 'cast' AS via
-  UNION
-    WITH m MATCH (m)<-[:DIRECTED]-(:Person)-[:DIRECTED]->(rec:Movie)    RETURN rec, 5 AS w, 'director' AS via
-}
-WITH m, rec, sum(w) AS score, collect(DISTINCT via) AS reasons
-WHERE rec.id <> m.id
-RETURN rec.id AS id, rec.title AS title, score, reasons
-ORDER BY score DESC LIMIT $limit
-```
-
-The UI shows the `reasons` as tags ("shared cast", "director", "keyword") so a recommendation
-is **explainable** — you can see _why_ the graph suggested it.
-
-### 2. Collaborative filtering — _Fans also liked_
-
-The textbook bipartite traversal SQL dreads:
-
-```cypher
-MATCH (m:Movie {id: $id})<-[r1:RATED]-(u:User)-[r2:RATED]->(rec:Movie)
-WHERE r1.stars >= 4 AND r2.stars >= 4 AND rec.id <> m.id
-RETURN rec, count(DISTINCT u) AS fans, round(avg(r2.stars), 2) AS avg_stars
-ORDER BY fans DESC LIMIT $limit
-```
-
-### 3. Variable-length shortest path — _Six degrees_
-
-The showcase graph primitive, with no clean relational equivalent:
-
-```cypher
-MATCH (a:Person {name: $a}), (b:Person {name: $b})
-MATCH p = shortestPath((a)-[:ACTED_IN*..12]-(b))
-RETURN [n IN nodes(p) | ...] AS chain, length(p) / 2 AS degrees
-```
-
-### 4. Personalised recommendations — _For you_
-
-Hop from a user to peers who share their high ratings, then to the films those peers loved
-that the user hasn't seen. See `recommend_for_user` in `queries.py`.
-
-> Run [`backend/smoke_test.py`](backend/smoke_test.py) after seeding to execute **every** query
-> against your live instance and confirm the whole data layer works.
-
----
-
-## Architecture
+## How it fits together
 
 ```
-React + Vite (TypeScript)  ──HTTP/JSON──▶  FastAPI  ──Bolt (openCypher)──▶  CognoDB
-   pages / components                       routers → queries → neo4j driver
+React + Vite (TS)  ──HTTP/JSON──▶  FastAPI  ──Bolt/openCypher──▶  CognoDB
+   pages/components                 routers → queries → neo4j driver
 ```
 
-- **Backend** — FastAPI. Thin routers validate inputs (types + bounds) and delegate to a
-  single `queries` module. A shared `neo4j` driver (its own connection pool) talks Bolt to
-  CognoDB. A typed `DatabaseUnavailable` error is mapped globally to HTTP **503**, so an
-  unreachable database becomes a clean, friendly response instead of a stack trace.
-- **Frontend** — React + Vite. A small `useAsync` hook standardises loading / empty / error
-  states everywhere; a global health banner detects an offline or unconfigured database.
-- **Config** — every secret (URI, password) is read from environment variables. `.env` is
-  git-ignored; only `.env.example` is committed.
+The backend is thin and layered: `config` (env only) → `db` (one shared driver, typed errors) →
+`queries` (all Cypher) → `routers` (validate & shape). If CognoDB is unreachable it becomes a
+clean **503** with a friendly message, not a stack trace — and the frontend mirrors that with
+loading / empty / error states and a health banner. Secrets are read from the environment and
+never committed.
 
----
+## Run it locally
 
-## Setup & run
+**You'll need** Python 3.10+ and Node 18+.
 
-**Prerequisites:** Python 3.10+ and Node 18+.
+**1. Create a CognoDB instance** at [console.cognodb.com/signup](https://console.cognodb.com/signup)
+(free, no card). Make a free **c0** instance and copy the `bolt+s://` URI and the `cognodb`
+password — the password is shown only once.
 
-### 1. Create a CognoDB instance
-
-1. Sign up at **https://console.cognodb.com/signup** (free tier, no credit card).
-2. Create a free **c0** instance and pick a region — it provisions in under a minute.
-3. Copy your connection **URI** (`bolt+s://<instance-id>.databases.cognodb.cloud`) and the
-   generated **password** for user `cognodb`. **The password is shown only once — save it now.**
-
-### 2. Configure secrets
+**2. Add your secrets**
 
 ```bash
-cp .env.example .env          # in the repo root
-# edit .env and paste your NEO4J_URI and NEO4J_PASSWORD
+cp .env.example .env      # then fill in NEO4J_URI and NEO4J_PASSWORD
 ```
 
-The backend loads `.env` automatically (via `python-dotenv`). Nothing secret is committed.
-
-### 3. Seed the graph
+**3. Seed the graph**
 
 ```bash
 cd backend
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python -m seed.seed          # loads 44 movies + generates ~30 users & their ratings
-python smoke_test.py         # optional: run every query against your instance
+python -m seed.seed        # 44 films + ~30 viewers and their ratings
+python smoke_test.py       # optional: check every query against your instance
 ```
 
-The seed is **idempotent** (`MERGE`-based) — safe to re-run.
+Posters are optional: add a free `TMDB_API_KEY` to `.env`, then
+`python -m seed.enrich_posters && python -m seed.seed` to fetch real poster art. Without it,
+cards fall back to clean generated gradients.
 
-**Optional — real poster images.** Movie cards show real posters when a
-`poster_url` is present and fall back to a generated gradient otherwise. To
-populate posters from [TMDB](https://www.themoviedb.org) (free API key), run the
-enrichment script before seeding:
-
-```bash
-export TMDB_API_KEY=<your-tmdb-v3-key>   # themoviedb.org/settings/api
-python -m seed.enrich_posters            # writes poster_url into data/movies.json
-python -m seed.seed                      # re-seed to push them into the graph
-```
-
-### 4. Run the backend
+**4. Start both servers**
 
 ```bash
-# from backend/, with the venv active
+# backend (in backend/, venv active)
 uvicorn app.main:app --reload --port 8000
-# API now at http://localhost:8000  (health check: /api/health)
+
+# frontend (in frontend/)
+npm install && npm run dev
 ```
 
-### 5. Run the frontend
+Open **http://localhost:5173**.
 
-```bash
-cd frontend
-npm install
-npm run dev                  # http://localhost:5173  (proxies /api to :8000)
-```
+## Deploy
 
-Open **http://localhost:5173** and explore.
+Two independently-hostable pieces — backend on Render, frontend on Vercel, any free tier works.
+Step-by-step (with the CORS ordering gotcha and troubleshooting): **[`docs/DEPLOY.md`](docs/DEPLOY.md)**.
 
----
+## A look around
 
-## Deployment
+| Movie detail + recommendations | Six degrees | Made for you |
+| --- | --- | --- |
+| ![Detail](docs/screenshots/detail.png) | ![Six degrees](docs/screenshots/six-degrees.png) | ![For you](docs/screenshots/for-you.png) |
 
-**→ Full step-by-step guide: [`docs/DEPLOY.md`](docs/DEPLOY.md)** (Render + Vercel, with the
-CORS/`VITE_API_BASE` ordering and troubleshooting).
-
-In short — the app is two independently-hostable pieces; any free tier works:
-
-- **Backend (FastAPI):** deploy `backend/` to Render / Railway / Fly.io. Start command:
-  `uvicorn app.main:app --host 0.0.0.0 --port $PORT`. Set `NEO4J_URI`, `NEO4J_PASSWORD` and
-  `CORS_ORIGINS` (your frontend URL) as environment variables in the host's dashboard.
-- **Frontend (static):** deploy `frontend/` to Vercel / Netlify / Cloudflare Pages. Build
-  command `npm run build`, output dir `dist`, and set `VITE_API_BASE` to your backend URL.
-
-> **Keep your CognoDB instance running** until the review is complete, per the assignment.
-
----
-
-## Screenshots
-
-**Browse** — search, genre filters and the full catalogue, with live graph stats up top.
-
-![Browse](docs/screenshots/browse.png)
-
-**Movie detail** — cast, plus two graph-powered recommendation rows: _More like this_
-(content-based, with explainable "genre / shared cast / director" reason tags) and _Fans also
-liked_ (collaborative filtering).
-
-![Movie detail with recommendations](docs/screenshots/detail.png)
-
-**Six degrees** — the shortest chain of shared films between any two actors, a variable-length
-`shortestPath` traversal.
-
-![Six degrees of separation](docs/screenshots/six-degrees.png)
-
-**For you** — personalised recommendations for a viewer, drawn from like-minded viewers'
-ratings.
-
-![Made for you](docs/screenshots/for-you.png)
-
----
-
-## Project structure
+## Layout
 
 ```
-cognodb-movie-graph/
-├── README.md
-├── .env.example                 # template; real .env is git-ignored
-├── backend/
-│   ├── requirements.txt
-│   ├── smoke_test.py            # runs every query against the live DB
-│   ├── app/
-│   │   ├── config.py            # env-var settings
-│   │   ├── db.py                # Bolt driver + graceful error handling
-│   │   ├── queries.py           # all parameterised Cypher
-│   │   ├── main.py              # FastAPI app + 503 handler
-│   │   └── routers/api.py       # HTTP routes
-│   └── seed/
-│       ├── seed.py              # idempotent loader + rating generator
-│       └── data/movies.json     # curated, densely-connected film dataset
-└── frontend/
-    ├── src/
-    │   ├── api.ts               # typed API client
-    │   ├── useAsync.ts          # loading/error hook
-    │   ├── App.tsx              # routing + health banner
-    │   ├── components/          # MovieCard, states, Poster
-    │   └── pages/               # Home, MovieDetail, SixDegrees, ForYou
-    └── ...
+backend/
+  app/        config · db · queries · routers · main
+  seed/       seed.py · enrich_posters.py · data/movies.json
+  smoke_test.py
+frontend/
+  src/        api.ts · useAsync.ts · pages/ · components/
+docs/         DEPLOY.md · SUBMISSION_CHECKLIST.md · screenshots/
 ```
 
 ---
 
-Built as a take-home assignment demonstrating graph data modelling on CognoDB
-(openCypher over Bolt, via the official Neo4j driver).
-
-Poster images and movie metadata are provided by
-[The Movie Database (TMDB)](https://www.themoviedb.org). This product uses the
-TMDB API but is not endorsed or certified by TMDB.
+Poster images and metadata from [The Movie Database (TMDB)](https://www.themoviedb.org) — this
+product uses the TMDB API but isn't endorsed or certified by TMDB.

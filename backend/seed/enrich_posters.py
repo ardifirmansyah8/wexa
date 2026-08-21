@@ -4,7 +4,7 @@ Posters are looked up by title + year and written back into movies.json as a
 `poster_url` field. Re-run the seed afterwards to push them into the graph:
 
     cd backend
-    export TMDB_API_KEY=<your-tmdb-v3-api-key>   # free: themoviedb.org/settings/api
+    # add TMDB_API_KEY=<your-tmdb-v3-key> to your .env (see .env.example)
     python -m seed.enrich_posters
     python -m seed.seed
 
@@ -25,6 +25,10 @@ import urllib.request
 from pathlib import Path
 
 import certifi
+from dotenv import load_dotenv
+
+# Read TMDB_API_KEY from the same .env the app uses (searches up from here).
+load_dotenv()
 
 DATA_FILE = Path(__file__).with_name("data") / "movies.json"
 SEARCH_URL = "https://api.themoviedb.org/3/search/movie"
@@ -59,7 +63,10 @@ def tmdb_search(title: str, year: int, api_key: str) -> str | None:
 def main() -> None:
     api_key = os.getenv("TMDB_API_KEY")
     if not api_key:
-        sys.exit("Set TMDB_API_KEY first (free key: https://www.themoviedb.org/settings/api).")
+        sys.exit(
+            "TMDB_API_KEY is not set. Add it to your .env (see .env.example) or export it. "
+            "Free key: https://www.themoviedb.org/settings/api"
+        )
 
     movies = json.loads(DATA_FILE.read_text(encoding="utf-8"))
     resolved, missing = 0, []
