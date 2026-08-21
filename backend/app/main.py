@@ -56,6 +56,19 @@ async def db_unavailable_handler(_: Request, exc: DatabaseUnavailable) -> JSONRe
     )
 
 
+@app.get("/", tags=["meta"])
+def root() -> dict[str, str]:
+    """Friendly landing for anyone who opens the API host directly — this is the
+    backend, not the app. Points to the health check and interactive docs."""
+    return {
+        "service": "MovieGraph API",
+        "status": "ok",
+        "health": "/api/health",
+        "docs": "/docs",
+        "app": "https://moviegraph.vercel.app",
+    }
+
+
 @app.get("/api/health", tags=["meta"])
 def health() -> dict[str, object]:
     """Liveness + database reachability, used by the frontend to detect outages."""
